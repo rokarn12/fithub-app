@@ -6,6 +6,13 @@ function App() {
     <div className="App">
       <header className="App-header">
 
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>
+          FitHub
+        </h1>
+        <h2>
+          Expect more from your clothes.
+        </h2>
         <form>
           <div class="form-outline mb-4">
             <input type="email" id="form2Example1" class="form-control" />
@@ -37,33 +44,9 @@ function App() {
           
           <div class="text-center">
             <p>Not a member? <a href="#!">Register</a></p>
-            <p>or sign up with:</p>
-            <button type="button" class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-google"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-              <i class="fab fa-github"></i>
-            </button>
+            
           </div>
         </form>
-
-
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          FitHub
-        </h1>
-        <h2>
-          Expect more from your clothes.
-        </h2>
       </header>
     </div>
   );
