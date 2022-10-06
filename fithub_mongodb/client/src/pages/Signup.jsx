@@ -21,6 +21,9 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
+    // password validation
+    let hasSixChar = password.length >= 6;
+
     return (
         <div className="container mt-5 mb-5 col-10 col-sm-8 col-md-6 col-lg-5">
             <div className="text-center mb-5 alert alert-primary">
@@ -72,6 +75,11 @@ const Signup = () => {
                             }
                             />
                 </FormControl>
+                {password && (<div className="ml-1">
+                    <div>
+                        <small className={hasSixChar ? "text-success" : "text-danger"}>At least 6 characters</small>
+                    </div>
+                </div>)}
             </div>
 
             <div className="form-group">
@@ -84,15 +92,16 @@ const Signup = () => {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     />
-                    <FormHelperText>
+                    {password && confirmPassword && (<FormHelperText className="ml-1 mt-1">
                         {password === confirmPassword ? 
                         <span className="text-success">Password matches</span> : 
                         <span className="text-danger">Password does not match</span>}
-                    </FormHelperText>
+                    </FormHelperText>)}
             </div>
 
             <div className="text-center mt-4">
-                <Button variant="contained" disabled={!email || !password}>
+                <Button variant="contained" disabled={
+                    !username || !email || !password || !confirmPassword || password !== confirmPassword || !hasSixChar}>
                             Submit
                 </Button>
             </div>
