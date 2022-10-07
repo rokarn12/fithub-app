@@ -15,7 +15,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const Signup = () => {
     // form states
-    const [username, setUsername] = ("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -100,8 +100,7 @@ const Signup = () => {
             </div>
 
             <div className="text-center mt-4">
-                <Button variant="contained" disabled={
-                    !username || !email || !password || !confirmPassword || password !== confirmPassword || !hasSixChar}>
+                <Button variant="contained" disabled={!username || !email || !password || !confirmPassword || password !== confirmPassword || !hasSixChar}>
                             Submit
                 </Button>
             </div>
