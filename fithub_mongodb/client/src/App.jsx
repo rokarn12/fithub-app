@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Routes, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // components
 import Header from './components/Header';
