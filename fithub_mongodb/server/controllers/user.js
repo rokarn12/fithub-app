@@ -44,5 +44,43 @@ exports.login = async (req, res) => {
         }
 
         // if user is found, use authenticate model from the model
-    })
-}
+        if (!user.authenticate(password)) {
+            return res.status(401).json({
+                error: "Invalid email or password",
+            });
+        }
+
+        // generate a token with user id and jwt secret
+        const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET, {
+            expiresIn: "24h",
+        });
+
+        // persist token as 'jwt' in cookie with an expiry date
+        res.cookie("jwt", token, { expire: new Date() + 9999, httpOnly: true });
+
+        // return response with user
+        const { username } = user;
+        return res.json({
+            message: "Login successful!",
+            username,
+        })
+    });
+};
+
+exports.logout = (req, res) => {
+    // clear the cookie
+    res.clearCookie("jwt");
+
+    return res.json({
+        message: "Logout successful",
+    });
+};
+
+exports.getLoggedInUser = (req, res) => {
+    const { username } = req.user;
+
+    return res.status(200).json({
+        message: "User is still logged in.",
+        username,
+    });
+};

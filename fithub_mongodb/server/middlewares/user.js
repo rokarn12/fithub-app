@@ -1,3 +1,5 @@
+const user = require("../models/user");
+
 exports.userRegisterValidator = (req, res, next) => {
     // username is not null
     req.check("username", "Username is required").notEmpty();
@@ -23,4 +25,19 @@ exports.userRegisterValidator = (req, res, next) => {
 
     // proceed to next middleware
     next();
+};
+
+exports.userById = async (req, res, next) => {
+    user.findById(req._id).exec((err, user) => {
+        if (err || !user) {
+            return res.status(404).json({
+                error: "User not found",
+            });
+        }
+
+        // add user object in req with all user info
+        req.user = user;
+
+        next();
+    });
 }
