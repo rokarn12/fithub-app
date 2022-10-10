@@ -12,6 +12,8 @@ import {TextField,
 } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const Signup = () => {
     // form states
@@ -77,7 +79,23 @@ const Signup = () => {
                 </FormControl>
                 {password && (<div className="ml-1">
                     <div>
-                        <small className={hasSixChar ? "text-success" : "text-danger"}>At least 6 characters</small>
+                        {hasSixChar ? (
+                            <span className="text-success">
+                                <CheckCircleIcon
+                                    className="mr-1"
+                                    fontSize="small"
+                                />
+                                <small>At least 6 characters</small>
+                            </span>
+                        ) : (
+                            <span className="text-danger">
+                                <CancelIcon
+                                    className="mr-1"
+                                    fontSize="small"
+                                />
+                                <small>At least 6 characters</small>
+                            </span>
+                        )}
                     </div>
                 </div>)}
             </div>
