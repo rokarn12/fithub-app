@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { UserContext } from "../UserContext";
+
+// functions
+import {logout} from '../api/user';
 
 const Header = () => {
+    const navigate = useNavigate();
+    const {user, setUser} = useContext(UserContext);
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+
+        logout().then((res) => {
+            toast.success(res.message);
+            // redirect user to login
+            navigate('/login');
+        }).catch((err) => console.error(err));
+    };
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">
@@ -11,7 +30,7 @@ const Header = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
+                {!user ? <><li className="nav-item active">
                     <Link className="nav-link" to="/signup">
                         Sign Up
                     </Link>
@@ -21,6 +40,14 @@ const Header = () => {
                         Login
                     </Link>
                 </li>
+                </> :
+                <li className="nav-item">
+                    <span 
+                        className="nav-link"
+                        style={{cursor: "pointer"}}
+                        onClick={handleLogout}
+                    >Logout</span>
+                </li>}
                 </ul>
             </div>
         </nav>

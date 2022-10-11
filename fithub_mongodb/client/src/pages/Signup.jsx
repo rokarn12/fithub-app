@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // design
 import {TextField,
@@ -15,7 +17,13 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
+// functions
+import { register } from "../api/user";
+
+
 const Signup = () => {
+    const navigate = useNavigate();
+
     // form states
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -25,6 +33,22 @@ const Signup = () => {
 
     // password validation
     let hasSixChar = password.length >= 6;
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        try {
+            const res = await register({username, email, password});
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                // redirect the user to login
+                navigate('/login', {replace: true});
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
 
     return (
         <div className="container mt-5 mb-5 col-10 col-sm-8 col-md-6 col-lg-5">
@@ -118,7 +142,8 @@ const Signup = () => {
             </div>
 
             <div className="text-center mt-4">
-                <Button variant="contained" disabled={!username || !email || !password || !confirmPassword || password !== confirmPassword || !hasSixChar}>
+                <Button variant="contained" disabled={!username || !email || !password || !confirmPassword || password !== confirmPassword || !hasSixChar}
+                onClick={handleRegister}>
                             Submit
                 </Button>
             </div>
