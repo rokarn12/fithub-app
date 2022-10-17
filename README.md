@@ -8,7 +8,7 @@ Run the following commands to install libraries if you only have basic npm libra
 cd /server
 npm i express mongoose morgan cors dotenv nodemon cookie-parser crypto express-validator jsonwebtoken uuidv1
 cd ../client
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react react-dom react-router-dom react-scripts web-vitals
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react react-dom react-router-dom react-scripts web-vitals react-toastify
 ```
 
 ## TO RUN APP
