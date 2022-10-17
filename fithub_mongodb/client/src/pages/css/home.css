@@ -1,0 +1,14 @@
+/* 
+#back2 img {
+    width:10em;
+    height:10em;
+} */
+
+#back2 {
+    font-size: 20px;
+    justify-content:space-between;
+}
+
+#back2 #img1 {
+    background-color: red;
+}
