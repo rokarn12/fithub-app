@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-const itemCard = (src) => {
-    const src1 = './../pages/images/cap.png';
-
+const itemCard = (props) => {
     return (
         <div className='media'>
-            <img id='img1' src='' className='mr-3' alt='img1'></img>
+            <img id='img1' src={props.img_src} className='mr-3' alt='img1'></img>
             <div className='media-body text-left'>
-                <h4 className='mt-0 mb-1'>Hat</h4>
-                <p>Color: _____ | Type: _____</p>
-                <p>Description for why this item of clothing was selected</p>
+                <h4 className='mt-0 mb-1'>{props.article}</h4>
+                <p classname='mt-0 mb-1'>Color: {props.color} <b>|</b> Type: {props.type}</p>
+                <p>&ensp;{props.description}</p>
             </div>
         </div>
     );
