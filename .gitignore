@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
 ./fithub_mongodb/server/node_modules
 ./fithub_mongodb/client/node_modules
+=======
+>>>>>>> dev
 /.pnp
 .pnp.js
 
