@@ -16,6 +16,8 @@ const Header = () => {
 
         logout().then((res) => {
             toast.success(res.message);
+            // set user to null
+            setUser(null);
             // redirect user to login
             navigate('/login');
         }).catch((err) => console.error(err));
@@ -30,24 +32,28 @@ const Header = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                {!user ? <><li className="nav-item active">
-                    <Link className="nav-link" to="/signup">
-                        Sign Up
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/login">
-                        Login
-                    </Link>
-                </li>
-                </> :
-                <li className="nav-item">
-                    <span 
-                        className="nav-link"
-                        style={{cursor: "pointer"}}
-                        onClick={handleLogout}
-                    >Logout</span>
-                </li>}
+                {!user ? (
+                    <>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/signup">
+                                Sign Up
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/login">
+                                Login
+                            </Link>
+                        </li>
+                    </>
+                ) : (
+                    <li className="nav-item">
+                        <span 
+                            className="nav-link"
+                            style={{cursor: "pointer"}}
+                            onClick={handleLogout}
+                        >Logout</span>
+                    </li>
+                )}
                 </ul>
             </div>
         </nav>
