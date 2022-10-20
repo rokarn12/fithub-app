@@ -37,7 +37,7 @@ const Login = () => {
                 toast.success(res.message);
                 setUser(res.username);
                 // redirect the user to home
-                navigate('/', {replace: true});
+                navigate('/userdashboard', {replace: true});
             }
         } catch (err) {
             toast.error(err);
