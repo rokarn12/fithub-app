@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, redirect } from "react-router-dom";
 
 import { UserContext } from "./UserContext";
 
@@ -33,7 +33,7 @@ const App = () => {
         <UserContext.Provider value={{user, setUser}}>
           {/*<ToastContainer /> this line does not throw error, but causes entire app to go blank*/}
           <Header />
-          {/*<Redirect to={user ? '/' : 'login'} /> this line throws an error */}
+          <redirect to={user ? '/' : 'login'} />
           <Routes>
             <Route exact path="/" element={<Home />}/>
             <Route exact path="/login" element={<Login />}/>
