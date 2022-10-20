@@ -42,7 +42,6 @@ const Home = () => {
                                 Login
                     </Button>
                 </Link>
->>>>>>> dev
             </div>
         </div>
     );
