@@ -4,11 +4,27 @@
     height:10em;
 } */
 
+#back2 #itemCard {
+    animation: item-move 10s infinite;
+}
+
 #back2 {
     font-size: 20px;
     justify-content:space-between;
 }
 
 #back2 #img1 {
-    background-color: red;
+    background-color: blue;
+    border-radius: 10px;
+    box-shadow: 10px;
+}
+
+@keyframes item-move {
+    0% {transform: translateX(0)}
+    40% {transform: translateX(0)}
+    50% {transform: translateX(100vw)}
+    /* 25% {} */
+    60% {transform: translateX(0)}
+    /* 75% {} */
+    100% {transform: translateX(0)}
 }
