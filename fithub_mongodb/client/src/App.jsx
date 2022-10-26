@@ -35,6 +35,7 @@ const App = () => {
           {/*<ToastContainer /> this line does not throw error, but causes entire app to go blank*/}
           <Header />
           <redirect to={user ? '/' : 'login'} />
+          <redirect to={user ? 'login' : 'userdashboard'} />
           <Routes>
             <Route exact path="/" element={<Home />}/>
             <Route exact path="/login" element={<Login />}/>
