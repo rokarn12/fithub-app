@@ -10,6 +10,7 @@ const UserDashboard = () => {
                     Personal Dashboard</h1>
             </div>
         </div>
+        // add user dashboard functionality here
     ) : ( // user is not logged in, show this message
         <div className="container text-center">
             <div className="alert alert-danger p-5">
