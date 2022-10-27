@@ -26,23 +26,21 @@ const Home = () => {
     const [color2, setStyle_item2] = useState("White");
     const [color3, setStyle_item3] = useState("Brown");
     const [color4, setStyle_item4] = useState("Grey");
+
     const [ani, animate1] = useState("outfit1");
+
     const [outfit_counter, increase] = useState(0);
 
-    // var buttonDisabled = False;
-    // var item1_color = "Red" ;
+    const [isDisabled, toggleDisable] = useState(false);
 
     const changeStyle = (event) => {
         console.log("clicked button", outfit_counter);
         // start animation state
-        
         animate1("outfit2");
-        // event.currentTarget.disabled = true;
-
+        
+        toggleDisable(true);
         // change everything
         setTimeout(function(){
-
-            console.log("2");
             setStyle_item1(outfits[outfit_counter][0]);
             setStyle_item2(outfits[outfit_counter][1]);
             setStyle_item3(outfits[outfit_counter][2]);
@@ -53,14 +51,13 @@ const Home = () => {
         setTimeout(function(){
             console.log("3");
             animate1("outfit1");
-            
         },2000);
+
         setTimeout(function(){
             console.log(outfit_counter);
-            // event.currentTarget.disabled = false;
-            // outfit_counter++;
+            toggleDisable(false);
         }, 2000);
-        // outfit_counter++;
+        
         if (outfit_counter == outfits.length - 1) {
             increase(0);
         } else {
@@ -102,7 +99,7 @@ const Home = () => {
                 </div>            
                 <div>
                     <p>Try out the outfit generator!</p>
-                    <Button variant="contained" size="large" onClick={changeStyle}>
+                    <Button variant="contained" size="large" disabled={isDisabled} onClick={changeStyle}>
                         Generate New Outfit!
                     </Button>
                     <br></br>
