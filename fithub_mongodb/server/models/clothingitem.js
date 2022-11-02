@@ -19,11 +19,11 @@ const clothingItemSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        primaryColor: {
+        color: {
             type: String,
             required: true,
         },
-        eventType: {
+        attireType: {
             type: String,
             required: true,
         },
