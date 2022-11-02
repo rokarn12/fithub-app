@@ -89,7 +89,7 @@ const OutfitGenerator = () => {
     ) : ( // user is not logged in, show this message
         <div className="container text-center">
             <div className="alert alert-danger p-5">
-                <h1>Please Login to View Dashboard</h1>
+                <h1>Please Login to View Outfit Generator</h1>
             </div>
         </div> 
     )));

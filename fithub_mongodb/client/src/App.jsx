@@ -16,6 +16,7 @@ import UserDashboard from "./pages/UserDashboard";
 import AddItemPage from "./pages/AddItemPage";
 
 import OutfitGenerator from "./pages/OutfitGenerator";
+import ECloset from "./pages/ECloset";
 
 
 // functions
@@ -49,6 +50,7 @@ const App = () => {
             <Route exact path="/additempage" element={<AddItemPage />}/>
 
             <Route exact path="/outfitgenerator" element={<OutfitGenerator />}/>
+            <Route exact path="/ecloset" element={<ECloset />}/>
           </Routes>
         </UserContext.Provider>
       </Router>

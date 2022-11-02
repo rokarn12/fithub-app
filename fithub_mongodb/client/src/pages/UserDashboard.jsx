@@ -2,6 +2,7 @@ import React, { useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 
+
 import './css/home.css';
 
 import {
@@ -13,14 +14,16 @@ const UserDashboard = () => {
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center">
             <div className="alert alert-primary p-5">
-                <h1>{user && <span className='text-success'>{user}'s</span>}{" "}
+                <h1>{user && <span >{user}'s</span>}{" "}
                     Personal Dashboard</h1>
             </div>
 
             <div className="container">
                 <div className="container">
                     <Button id="button" variant="contained">Add Item</Button> {' '}
-                    <Button variant="contained">E-Closet</Button>{' '}
+                    <Link to="/ecloset">
+                        <Button variant="contained">E-Closet</Button>{' '}
+                    </Link>
                     <Button variant="contained">Saved Outfits</Button>{' '}
                     {/* <br></br> */}
                 </div>
