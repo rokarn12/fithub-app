@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import Signup from "./pages/Signup";
 import UserDashboard from "./pages/UserDashboard";
 import OutfitGenerator from "./pages/OutfitGenerator";
+import ECloset from "./pages/ECloset";
 
 // functions
 import { getUser } from "./api/user";
@@ -43,6 +44,7 @@ const App = () => {
             <Route exact path="/signup" element={<Signup />}/>
             <Route exact path="/userdashboard" element={<UserDashboard />}/>
             <Route exact path="/outfitgenerator" element={<OutfitGenerator />}/>
+            <Route exact path="/ecloset" element={<ECloset />}/>
           </Routes>
         </UserContext.Provider>
       </Router>
