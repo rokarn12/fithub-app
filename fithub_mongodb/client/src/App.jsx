@@ -12,7 +12,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from "./pages/Signup";
 import UserDashboard from "./pages/UserDashboard";
+
+import AddItemPage from "./pages/AddItemPage";
+
 import OutfitGenerator from "./pages/OutfitGenerator";
+
 
 // functions
 import { getUser } from "./api/user";
@@ -42,6 +46,8 @@ const App = () => {
             <Route exact path="/login" element={<Login />}/>
             <Route exact path="/signup" element={<Signup />}/>
             <Route exact path="/userdashboard" element={<UserDashboard />}/>
+            <Route exact path="/additempage" element={<AddItemPage />}/>
+
             <Route exact path="/outfitgenerator" element={<OutfitGenerator />}/>
           </Routes>
         </UserContext.Provider>
