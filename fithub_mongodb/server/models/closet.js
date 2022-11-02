@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const ClothingObject = require('./clothingitem');
+
 
 const closetSchema = new mongoose.Schema(
     {
@@ -8,16 +10,16 @@ const closetSchema = new mongoose.Schema(
             ref: 'User',
         },
         hat: {
-            type: Array, // should change type to [ClothingObject]
+            type: [ClothingObject], // should change type to [ClothingObject]
         },
         shirt: {
-            type: Array,
+            type: [ClothingObject],
         },
         shorts: {
-            type: Array,
+            type: [ClothingObject],
         },
         shoes: {
-            type: Array,
+            type: [ClothingObject],
         }
     },
     {
@@ -25,4 +27,4 @@ const closetSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('Closet', closetSchema)
+module.exports = mongoose.model('Closet', closetSchema);
