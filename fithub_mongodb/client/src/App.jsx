@@ -48,7 +48,6 @@ const App = () => {
             <Route exact path="/signup" element={<Signup />}/>
             <Route exact path="/userdashboard" element={<UserDashboard />}/>
             <Route exact path="/additempage" element={<AddItemPage />}/>
-
             <Route exact path="/outfitgenerator" element={<OutfitGenerator />}/>
             <Route exact path="/ecloset" element={<ECloset />}/>
           </Routes>

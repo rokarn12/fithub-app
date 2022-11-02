@@ -20,7 +20,10 @@ const UserDashboard = () => {
 
             <div className="container">
                 <div className="container">
-                    <Button id="button" variant="contained">Add Item</Button> {' '}
+                    <Link to="/additempage">
+                        <Button id="button" variant="contained">Add Item</Button> {' '}
+                    </Link>
+                    
                     <Link to="/ecloset">
                         <Button variant="contained">E-Closet</Button>{' '}
                     </Link>
