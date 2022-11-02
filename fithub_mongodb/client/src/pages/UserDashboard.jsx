@@ -1,4 +1,5 @@
-import React, {useContext} from 'react';
+import React, { useContext} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 
 import './css/home.css';
@@ -25,8 +26,11 @@ const UserDashboard = () => {
                 </div>
                 <div className="container">
                     <br></br>
-                    <Button variant="contained">Generate New Outfit</Button>
+                    <Link to="/outfitgenerator">
+                        <Button variant="contained" >Generate New Outfit</Button>
+                    </Link>
                     <br></br>
+                        
                 </div>
             </div>
 
