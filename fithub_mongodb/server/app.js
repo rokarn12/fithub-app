@@ -31,6 +31,8 @@ app.use(expressValidator());
 // routes
 const userRoutes = require("./routes/user");
 app.use("/", userRoutes);
+const itemRoutes = require("./routes/closet");
+app.use("/", itemRoutes);
 
 // port
 const port = process.env.PORT || 8080;

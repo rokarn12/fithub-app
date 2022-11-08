@@ -5,7 +5,7 @@ export const addItem = async ({ clothingType, color, attireType } = {}) => {
         const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, {
             method: 'POST',
             headers: {
-                Accept: 'appliction/json',
+                Accept: 'application/json',
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(item)

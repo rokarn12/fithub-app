@@ -8,6 +8,6 @@ const { addItem } = require("../controllers/closet");
 const { itemValidator } = require("../middlewares/closet");
 
 // api routes
-router.post("/additem", itemValidator, addItem);
+router.post("/additem", addItem, itemValidator);
 
 module.exports = router;

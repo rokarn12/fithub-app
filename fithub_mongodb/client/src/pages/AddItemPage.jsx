@@ -29,6 +29,7 @@ const AddItemPage = () => {
                 navigate('/additempage', {replace: true});
             }
         } catch (err) {
+            navigate('/userdashboard', {replace: true});
             toast.error(err);
         }
     };

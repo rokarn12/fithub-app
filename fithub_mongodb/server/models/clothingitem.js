@@ -33,4 +33,4 @@ const clothingItemSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('ClothingItem', clothingItemSchema);
+module.exports = ClothingItem = mongoose.model('ClothingItem', clothingItemSchema);

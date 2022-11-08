@@ -1,8 +1,8 @@
-const ClothingObject = require("../models/clothingitem");
+const ClothingItem = require("../models/clothingitem");
 require("dotenv").config();
 
 exports.addItem = async (req, res) => {
-    const item = new ClothingObject(req.body);
+    const item = new ClothingItem(req.body);
     await item.save();
 
     res.status(202).json({

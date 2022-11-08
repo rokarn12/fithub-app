@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ClothingObject = require('./clothingitem');
+const ClothingItem = require('./clothingitem');
 
 
 const closetSchema = new mongoose.Schema(
@@ -10,16 +10,16 @@ const closetSchema = new mongoose.Schema(
             ref: 'User',
         },
         hat: {
-            type: [ClothingObject], // should change type to [ClothingObject]
+            type: [ClothingItem], // should change type to [ClothingObject]
         },
         shirt: {
-            type: [ClothingObject],
+            type: [ClothingItem],
         },
         shorts: {
-            type: [ClothingObject],
+            type: [ClothingItem],
         },
         shoes: {
-            type: [ClothingObject],
+            type: [ClothingItem],
         }
     },
     {
