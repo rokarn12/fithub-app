@@ -10,7 +10,7 @@ const closetSchema = new mongoose.Schema(
             ref: 'User',
         },
         hat: {
-            type: [ClothingItem], // should change type to [ClothingObject]
+            type: [ClothingItem],
         },
         shirt: {
             type: [ClothingItem],
