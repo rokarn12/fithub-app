@@ -16,3 +16,15 @@ export const addItem = async ({ user, clothingType, color, attireType } = {}) =>
         throw new Error(`Cannot add item at this time. ${err}`);
     }
 };
+
+export const getItems = async () => {
+    try {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, {
+            method: "GET",
+            credentials: "include",
+        });
+        return res.json();
+    } catch (err) {
+        throw new Error("Could not get items.");
+    }
+};
