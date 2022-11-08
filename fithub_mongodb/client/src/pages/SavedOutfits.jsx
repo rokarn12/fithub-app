@@ -10,14 +10,14 @@ import {
     Button
 } from '@mui/material';
 
-const ECloset = () => { 
+const SavedOutfits = () => { 
     const {user} = useContext(UserContext);
 
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center">
             <div className="container mt-5 mb-5 col-lg">
                 <div className="alert p-5">
-                    <h1>E-Closet</h1>
+                    <h1>Saved Outfits</h1>
                 </div>
             </div>            
 
@@ -32,4 +32,4 @@ const ECloset = () => {
     )));
 };
 
-export default ECloset;
+export default SavedOutfits;

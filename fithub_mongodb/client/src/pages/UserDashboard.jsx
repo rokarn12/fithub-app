@@ -27,7 +27,10 @@ const UserDashboard = () => {
                     <Link to="/ecloset">
                         <Button variant="contained">E-Closet</Button>{' '}
                     </Link>
-                    <Button variant="contained">Saved Outfits</Button>{' '}
+                    <Link to="/savedoutfits">
+                        <Button variant="contained">Saved Outfits</Button>{' '}
+                    </Link>
+                    
                     {/* <br></br> */}
                 </div>
                 <div className="container">

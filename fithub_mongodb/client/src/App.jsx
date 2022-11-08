@@ -17,6 +17,7 @@ import AddItemPage from "./pages/AddItemPage";
 
 import OutfitGenerator from "./pages/OutfitGenerator";
 import ECloset from "./pages/ECloset";
+import SavedOutfits from "./pages/SavedOutfits";
 
 
 // functions
@@ -50,6 +51,7 @@ const App = () => {
             <Route exact path="/additempage" element={<AddItemPage />}/>
             <Route exact path="/outfitgenerator" element={<OutfitGenerator />}/>
             <Route exact path="/ecloset" element={<ECloset />}/>
+            <Route exact path="/savedoutfits" element={<SavedOutfits />}/>
           </Routes>
         </UserContext.Provider>
       </Router>
