@@ -16,3 +16,7 @@ export const addItem = async ({ user, clothingType, color, attireType } = {}) =>
         throw new Error(`Cannot add item at this time. ${err}`);
     }
 };
+
+export const getItems = async () => {
+
+};
