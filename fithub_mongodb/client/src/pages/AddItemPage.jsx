@@ -20,6 +20,7 @@ const AddItemPage = () => {
     const [color, setColor] = useState("black");
     const [attireType, setAttireType] = useState("Formal");
     const [name, setName] = useState("");
+    const store_color = "black";
 
     const handleAddItem = async (e) => {
         e.preventDefault();
@@ -56,7 +57,7 @@ const AddItemPage = () => {
                     <option value="Pullover">Pullover</option>
                     </select>
                 </div>
-                <div><Component value={color} onChange={(e) => setColor(e.target.value)}></Component></div>
+                <div><Component value={color} onClick={(e) => setColor(e.target.value)}></Component></div>
                 <div id='AttireType' className="container">
                     <label for="attire-type">Attire Type: </label>
                     <select name="attire-type" id="attire-types" value={attireType} onChange={(e) => setAttireType(e.target.value)}>
