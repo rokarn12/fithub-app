@@ -16,9 +16,9 @@ const AddItemPage = () => {
     const navigate = useNavigate();
 
     // form states
-    const [clothingType, setClothingType] = useState("");
-    const [color, setColor] = useState("");
-    const [attireType, setAttireType] = useState("");
+    const [clothingType, setClothingType] = useState("T-Shirt");
+    const [color, setColor] = useState("black");
+    const [attireType, setAttireType] = useState("Formal");
     const [name, setName] = useState("");
 
     const handleAddItem = async (e) => {
