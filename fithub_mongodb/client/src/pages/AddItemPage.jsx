@@ -31,6 +31,7 @@ const AddItemPage = () => {
                 toast.success(res.message);
                 // redirect user back to add item page
                 navigate('/additempage', {replace: true});
+                console.log("added item");
             }
         } catch (err) {
             toast.error(err);
