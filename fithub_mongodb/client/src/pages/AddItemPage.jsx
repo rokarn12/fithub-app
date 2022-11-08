@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CirclePicker } from 'react-color';
 import {
     Button
 } from '@mui/material';
+import { UserContext } from '../UserContext';
 
 // functions
 import { addItem } from "../api/closet";
 
 const AddItemPage = () => {
+    const {user} = useContext(UserContext);
     const navigate = useNavigate();
 
     // form states
@@ -19,9 +21,9 @@ const AddItemPage = () => {
 
     const handleAddItem = async (e) => {
         e.preventDefault();
-
+        
         try {
-            const res = await addItem({clothingType, color, attireType});
+            const res = await addItem({user, clothingType, color, attireType});
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);

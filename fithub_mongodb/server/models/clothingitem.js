@@ -6,11 +6,11 @@ const eventType = new Array("relaxed", "casual", "businessCasual", "formal");
 
 const clothingItemSchema = new mongoose.Schema(
     {
-        // user: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     required: true,
-        //     ref: 'User',
-        // },
+        user: {
+            type: String,
+            required: true,
+            ref: 'User',
+        },
         // itemID: {
         //     type: new mongoose.Types.ObjectId,
         //     required: true,
