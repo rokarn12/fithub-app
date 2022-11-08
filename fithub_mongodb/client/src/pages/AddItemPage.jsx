@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { CirclePicker } from 'react-color';
 import {
+    TextField,
     Button
 } from '@mui/material';
 import { UserContext } from '../UserContext';
@@ -15,9 +16,10 @@ const AddItemPage = () => {
     const navigate = useNavigate();
 
     // form states
-    const [clothingType, setClothingType] = useState("shirt");
-    const [color, setColor] = useState("black");
-    const [attireType, setAttireType] = useState("casual");
+    const [clothingType, setClothingType] = useState("");
+    const [color, setColor] = useState("");
+    const [attireType, setAttireType] = useState("");
+    const [name, setName] = useState("");
 
     const handleAddItem = async (e) => {
         e.preventDefault();
@@ -32,7 +34,6 @@ const AddItemPage = () => {
                 console.log("added item");
             }
         } catch (err) {
-            navigate('/userdashboard', {replace: true});
             toast.error(err);
         }
     };
@@ -65,7 +66,16 @@ const AddItemPage = () => {
                     </select>
                 </div>
             </div>
-            <Button variant="contained" style={{marginTop: "8rem"}} onClick={handleAddItem}>Add Item</Button>
+            <div className="d-flex flex-row mb-3" style={{marginTop: "50px"}}>
+                <TextField 
+                        size="small"
+                        variant="outlined"
+                        label="Name"
+                        style={{marginLeft: "457px"}}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}/>
+            </div>
+            <Button variant="contained" style={{marginTop: "4rem"}} onClick={handleAddItem}>Add Item</Button>
         </div>
     );
 };
