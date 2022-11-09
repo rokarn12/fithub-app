@@ -11,11 +11,11 @@ exports.addItem = async (req, res) => {
     });
 };
 
-exports.userItems = (req, res) => {
-    const {username} = req.user;
+exports.userItems = async (req, res) => {
+    //const {username} = req.user;
 
-    const items = ClothingItem.find({ // await ?
-        user: { username }
+    const items = await ClothingItem.find({ // await ?
+        user: req.body.username
     });
 
     return res.status(200).json({

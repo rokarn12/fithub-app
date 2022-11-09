@@ -40,12 +40,12 @@ const ECloset = () => {
             toast.error(err);
         }
     };
-    handlegetItems();
+    //handlegetItems();
     console.log(allItems);
     // window.alert("hi");
 
     return ((user ? ( // user is logged in, show their dashboard
-        <div className="container text-center">
+        <div className="container text-center" onLoad={handlegetItems()}>
             <div className="container mt-5 mb-5 col-lg">
                 <div className="alert p-5">
                     <h1>E-Closet</h1>
