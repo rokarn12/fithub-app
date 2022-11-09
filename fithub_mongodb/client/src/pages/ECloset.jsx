@@ -123,7 +123,7 @@ const ECloset = () => {
                 <div>
                     {allItems.map((item) => (
                         //<li key={index}>{"Name:" + item.ItemName + "\tClothing Type\t" + item.clothingType }</li>
-                        <ItemCard article = {item.clothingType} color = {item.color} type = {item.attireType}/>
+                        <ItemCard article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
                     ))}
                 </div>
             </div>            

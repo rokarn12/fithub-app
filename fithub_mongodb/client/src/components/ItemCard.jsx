@@ -36,7 +36,7 @@ const itemCard = (props) => {
         <div id='itemCard' className='media'>
             <img id='img_icon' src={imgSrc} className='mr-3' alt='img1' style={{borderColor: props.color}}></img>
             <div className='media-body text-left'>
-                <h4 className='mt-0 mb-1'>{props.article}</h4>
+                <h4 className='mt-0 mb-1'>{props.article} | {props.name}</h4>
                 <p classname='mt-0 mb-1'>Color: {props.color} <b>|</b> Type: {props.type}</p>
                 <p>&ensp;{props.description}</p>
             </div>
