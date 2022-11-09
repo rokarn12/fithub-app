@@ -33,8 +33,7 @@ const ECloset = () => {
                 // redirect user back to add item page
                 navigate('/ecloset', {replace: true});
                 setAllItems(res.items);
-                // console.log("successfully received all it");
-                console.log(allItems, " <- allItems");
+                // console.log("successfully received all it")
             }
         } catch (err) {
             console.log(err);
@@ -43,7 +42,7 @@ const ECloset = () => {
         }
     };
     //handlegetItems();
-    console.log(allItems);
+    console.log(allItems, " <- all");
     // window.alert("hi"); handlegetItems()
 
     return ((user ? ( // user is logged in, show their dashboard
@@ -55,7 +54,11 @@ const ECloset = () => {
                 <Button variant="contained" size="large" onClick={handlegetItems} >
                     Refresh E-Closet
                 </Button>
-                <ItemCard />
+                <ul>
+                    {allItems.map((item, index) => (
+                        <li key={index}>{item.color}</li>
+                    ))}
+                </ul>
             </div>            
         </div>
         // add user dashboard functionality here
