@@ -37,14 +37,15 @@
     overflow: hidden;
 }
 
-#back2 #img_icon {
+#img_icon {
     /* background-color: blue; */
     border-radius: 10px;
     box-shadow: 10px;
-    min-width: 7em;
+    min-width: 10em;
     width: 10vw;
     margin: 10px;
     box-shadow: 5px 5px 10px black;
+    border: 25px solid black;
 }
 
 @keyframes item-move {
