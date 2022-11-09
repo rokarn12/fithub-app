@@ -1,15 +1,89 @@
 import React, {useContext, useState } from 'react';
 import { UserContext } from '../UserContext';
-
+import { toast } from 'react-toastify';
 import './css/home.css';
 import ItemCard from './../components/ItemCard.jsx';
-
+import { useNavigate } from 'react-router-dom';
 import {
     Button
 } from '@mui/material';
+import { getHats, getPants, getShirts, getShoes } from '../api/closet';
+//import { set } from 'mongoose';
 
 const OutfitGenerator = () => {
     const {user} = useContext(UserContext);
+    const [hats, setHats] = useState([]);
+    const [shirts, setShirts] = useState([]);
+    const [pants, setPants] = useState([]);
+    const [shoes, setShoes] = useState([]);
+
+    const handleGetHats = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const res = await getHats(user);
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                setHats(res.hats);
+                //navigate('/ecloset', {replace: true});
+                console.log("added hat");
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
+
+    const handleGetShirts = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const res = await getShirts(user);
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                setShirts(res.shirts);
+                //navigate('/ecloset', {replace: true});
+                console.log("added item");
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
+
+    const handleGetPants = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const res = await getPants(user);
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                setPants(res.pants);
+                //navigate('/ecloset', {replace: true});
+                console.log("added item");
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
+
+    const handleGetShoes = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const res = await getShoes(user);
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                setShoes(res.shoes);
+                //navigate('/ecloset', {replace: true});
+                console.log("added item");
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
 
     const outfits = [
         ["White", "Grey", "MidnightBlue", "SlateGrey"],
@@ -17,6 +91,12 @@ const OutfitGenerator = () => {
         ["Orange", "Grey", "SlateGrey", "White"],
         ["Yellow", "Grey", "SlateGrey", "White"],
     ]
+
+    console.log("Hats", hats);
+    // hats is a list of hat clothing items
+    console.log("Shirts:", shirts);
+    console.log("Pants:", pants);
+    console.log("Shoes:", shoes);
 
 
     const [color1, setStyle_item1] = useState("Red");
@@ -78,6 +158,18 @@ const OutfitGenerator = () => {
                     </div>
                 </div>            
                 <div>
+                <Button variant="contained" size="large" onClick={handleGetHats} >
+                    Get Hats
+                </Button>
+                <Button variant="contained" size="large" onClick={handleGetShirts} >
+                    Get Shirts
+                </Button>
+                <Button variant="contained" size="large" onClick={handleGetPants} >
+                    Get Pants
+                </Button>
+                <Button variant="contained" size="large" onClick={handleGetShoes} >
+                    Get Shoes
+                </Button>
                     <Button variant="contained" size="large" disabled={isDisabled} onClick={changeStyle}>
                         Generate New Outfit!
                     </Button>

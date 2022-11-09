@@ -24,3 +24,59 @@ exports.userItems = async (req, res) => {
         items
     });
 };
+
+exports.getUserHats = async (req, res) => {
+    // const {username} = req.user; 
+    console.log("****");
+    const hats = await ClothingItem.find({ // await ?
+        user: "ron",
+        clothingType: "Hat"
+    });
+
+    return res.status(200).json({
+        message: "User's hats returned.",
+        hats
+    });
+};
+
+exports.getUserShirts = async (req, res) => {
+    // const {username} = req.user; 
+    console.log("****");
+    const shirts = await ClothingItem.find({ // await ?
+        user: "ron",
+        clothingType: "Shirt"
+    });
+
+    return res.status(200).json({
+        message: "User's shirts returned.",
+        shirts
+    });
+};
+
+exports.getUserPants = async (req, res) => {
+    // const {username} = req.user; 
+    console.log("****");
+    const pants = await ClothingItem.find({ // await ?
+        user: "ron",
+        clothingType: "Pants"
+    });
+
+    return res.status(200).json({
+        message: "User's pants returned.",
+        pants
+    });
+};
+
+exports.getUserShoes = async (req, res) => {
+    // const {username} = req.user; 
+    console.log("****");
+    const shoes = await ClothingItem.find({ // await ?
+        user: "ron",
+        clothingType: "Shoes"
+    });
+
+    return res.status(200).json({
+        message: "User's shoes returned.",
+        shoes
+    });
+};
