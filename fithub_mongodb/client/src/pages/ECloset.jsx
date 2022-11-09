@@ -21,7 +21,7 @@ const ECloset = () => {
     // var allItems = [];
 
     const handlegetItems = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         try {
             console.log("1");
             const res = await getItems();
@@ -29,10 +29,12 @@ const ECloset = () => {
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
+                // window.alert(res.message);
                 // redirect user back to add item page
                 navigate('/ecloset', {replace: true});
                 setAllItems(res.items);
-                console.log("success");
+                // console.log("successfully received all it");
+                console.log(allItems, " <- allItems");
             }
         } catch (err) {
             console.log(err);
