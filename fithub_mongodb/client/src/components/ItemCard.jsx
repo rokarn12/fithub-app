@@ -27,6 +27,9 @@ const itemCard = (props) => {
         case "Shorts":
             imgSrc = require('../pages/images/shorts.png');
             break;
+        case "Pants":
+            imgSrc = require('../pages/images/pants.png');
+            break;
         case "Shoes":
             imgSrc = require('../pages/images/sneakers.png');
             break;
