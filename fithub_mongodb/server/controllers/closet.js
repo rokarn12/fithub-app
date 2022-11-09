@@ -16,11 +16,7 @@ exports.userItems = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
     const items = await ClothingItem.find({ // await ?
-<<<<<<< HEAD
         user: req.user
-=======
-        user: "ron"
->>>>>>> 7e6065b668b07324bb5fd72806096f8105168e8a
     });
 
     return res.status(200).json({
