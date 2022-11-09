@@ -158,7 +158,7 @@ const OutfitGenerator = () => {
                     </div>
                 </div>            
                 <div>
-                <Button variant="contained" size="large" onClick={handleGetHats} >
+                {/* <Button variant="contained" size="large" onClick={handleGetHats} >
                     Get Hats
                 </Button>
                 <Button variant="contained" size="large" onClick={handleGetShirts} >
@@ -169,7 +169,7 @@ const OutfitGenerator = () => {
                 </Button>
                 <Button variant="contained" size="large" onClick={handleGetShoes} >
                     Get Shoes
-                </Button>
+                </Button> */}
                 <Button variant="contained" size="large" disabled={isDisabled} onClick={changeStyle}>
                     Generate New Outfit!
                 </Button>
