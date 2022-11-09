@@ -21,4 +21,4 @@ exports.itemValidator = (req, res, next) => {
 
     // proceed to next middleware
     next();
-}
+};

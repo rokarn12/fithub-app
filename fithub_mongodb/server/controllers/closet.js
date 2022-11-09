@@ -11,10 +11,10 @@ exports.addItem = async (req, res) => {
     });
 };
 
-exports.userItems = async (req, res) => {
+exports.userItems = (req, res) => {
     const {username} = req.user;
 
-    const items = await ClothingItem.find({ // await ?
+    const items = ClothingItem.find({ // await ?
         user: { username }
     });
 

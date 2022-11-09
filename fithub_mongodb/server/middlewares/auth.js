@@ -24,4 +24,4 @@ exports.verifyToken = (req, res, next) => {
             error: "Unauthorized",
         });
     }
-}
+};
