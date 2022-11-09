@@ -30,8 +30,9 @@ const AddItemPage = () => {
             else {
                 toast.success(res.message);
                 // redirect user back to add item page
-                navigate('/ecloset', {replace: true});
+                navigate('/additempage', {replace: true});
                 console.log("added item");
+                window.alert("Item successfully added!")
             }
         } catch (err) {
             toast.error(err);
