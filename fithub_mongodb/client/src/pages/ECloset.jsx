@@ -42,15 +42,17 @@ const ECloset = () => {
     };
     //handlegetItems();
     console.log(allItems);
-    // window.alert("hi");
+    // window.alert("hi"); handlegetItems()
 
     return ((user ? ( // user is logged in, show their dashboard
-        <div className="container text-center" onLoad={handlegetItems()}>
+        <div className="container text-center">
             <div className="container mt-5 mb-5 col-lg">
                 <div className="alert p-5">
                     <h1>E-Closet</h1>
                 </div>
-
+                <Button variant="contained" size="large" onClick={handlegetItems} >
+                    Refresh E-Closet
+                </Button>
                 <ItemCard />
             </div>            
         </div>
