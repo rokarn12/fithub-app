@@ -25,11 +25,11 @@ const itemCard = (props) => {
             imgSrc = require('../pages/images/tshirt.png');
             break;
         case "Shorts":
-                imgSrc = require('../pages/images/shorts.png');
-                break;
+            imgSrc = require('../pages/images/shorts.png');
+            break;
         case "Shoes":
-                imgSrc = require('../pages/images/sneakers.png');
-                break;
+            imgSrc = require('../pages/images/sneakers.png');
+            break;
     }
 
     return (
