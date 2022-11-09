@@ -54,11 +54,12 @@ const ECloset = () => {
                 <Button variant="contained" size="large" onClick={handlegetItems} >
                     Refresh E-Closet
                 </Button>
-                <ul>
-                    {allItems.map((item, index) => (
-                        <li key={index}>{item.color}</li>
+                <div>
+                    {allItems.map((item) => (
+                        //<li key={index}>{"Name:" + item.ItemName + "\tClothing Type\t" + item.clothingType }</li>
+                        <ItemCard article = {item.clothingType} color = {item.color} type = {item.attireType}/>
                     ))}
-                </ul>
+                </div>
             </div>            
         </div>
         // add user dashboard functionality here
