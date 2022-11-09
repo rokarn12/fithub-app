@@ -57,8 +57,23 @@ const AddItemPage = () => {
                     <option value="Pullover">Pullover</option>
                     </select>
                 </div>
-                <div><Component value={color} onChange={(e) => setColor(e.target.value)}></Component></div>
-                <div id='AttireType' className="container">
+                {/*<div><Component value={color} onChange={(e) => setColor(e.target.value)}></Component></div>*/}
+                <div id='Color' className="container" style={{padding: "10px"}}>
+                    <label for="color">Color: </label>
+                    <select name="color" id="colors" value={color} onChange={(e) => setColor(e.target.value)}>
+                    <option value="blue">Blue</option>
+                    <option value="black">Black</option>
+                    <option value="pink">Pink</option>
+                    <option value="purple">Purple</option>
+                    <option value="orange">Orange</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="brown">Brown</option>
+                    <option value="white">White</option>
+                    </select>
+                </div>
+                <div id='AttireType' className="container" style={{padding: "10px"}}>
                     <label for="attire-type">Attire Type: </label>
                     <select name="attire-type" id="attire-types" value={attireType} onChange={(e) => setAttireType(e.target.value)}>
                     <option value="formal">Formal</option>
@@ -81,7 +96,9 @@ const AddItemPage = () => {
     );
 };
 
+
 export default AddItemPage;
+/*
 class Component extends React.Component {
     render() {
         return <CirclePicker        
@@ -89,3 +106,4 @@ class Component extends React.Component {
         />;
     }
 }
+*/
