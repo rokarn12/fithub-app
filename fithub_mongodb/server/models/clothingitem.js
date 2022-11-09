@@ -11,6 +11,10 @@ const clothingItemSchema = new mongoose.Schema(
             required: true,
             ref: 'User',
         },
+        itemName: {
+            type: String,
+            required: true,
+        },
         // itemID: {
         //     type: new mongoose.Types.ObjectId,
         //     required: true,

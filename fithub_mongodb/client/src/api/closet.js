@@ -1,5 +1,5 @@
-export const addItem = async ({ user, clothingType, color, attireType } = {}) => {
-    const item = { user, clothingType, color, attireType };
+export const addItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
+    const item = { user, itemName, clothingType, color, attireType };
 
     try {
         const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, {

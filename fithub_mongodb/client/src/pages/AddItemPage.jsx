@@ -19,18 +19,18 @@ const AddItemPage = () => {
     const [clothingType, setClothingType] = useState("T-Shirt");
     const [color, setColor] = useState("black");
     const [attireType, setAttireType] = useState("Formal");
-    const [name, setName] = useState("");
+    const [itemName, setitemName] = useState("defaultName");
 
     const handleAddItem = async (e) => {
         e.preventDefault();
         
         try {
-            const res = await addItem({user, clothingType, color, attireType});
+            const res = await addItem({user, itemName, clothingType, color, attireType});
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
                 // redirect user back to add item page
-                navigate('/additempage', {replace: true});
+                navigate('/ecloset', {replace: true});
                 console.log("added item");
             }
         } catch (err) {
@@ -72,8 +72,8 @@ const AddItemPage = () => {
                         variant="outlined"
                         label="Name"
                         style={{marginLeft: "457px"}}
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}/>
+                        value={itemName}
+                        onChange={(e) => setitemName(e.target.value)}/>
             </div>
             <Button variant="contained" style={{marginTop: "4rem"}} onClick={handleAddItem}>Add Item</Button>
         </div>
