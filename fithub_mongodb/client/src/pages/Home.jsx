@@ -85,7 +85,7 @@ const Home = () => {
                         of your fit. Don’t waste any more time cleaning up after trying on too many outfits. Try out the
                         outfit generator below!</p>
                 </div>
-                <div id='back2' className="container mt-5 mb-5 col-lg">
+                {/* <div id='back2' className="container mt-5 mb-5 col-lg">
                     <div className={ani}>
                         <ItemCard article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
                                 description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>
@@ -103,7 +103,7 @@ const Home = () => {
                         Generate New Outfit!
                     </Button>
                     <br></br>
-                </div>
+                </div> */}
             </div>
             <div className="text-center col-lg"> 
                 <br></br>   
