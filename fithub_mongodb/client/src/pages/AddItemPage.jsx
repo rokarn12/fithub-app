@@ -82,12 +82,12 @@ const AddItemPage = () => {
                     </select>
                 </div>
             </div>
-            <div className="d-flex flex-row mb-3" style={{marginTop: "50px"}}>
+            <div className="d-flex flex-row mb-3 justify-content-center" style={{marginTop: "50px"}}>
                 <TextField 
                         size="small"
                         variant="outlined"
                         label="Name"
-                        style={{marginLeft: "457px"}}
+                        //style={{marginLeft: "457px"}}
                         value={itemName}
                         onChange={(e) => setitemName(e.target.value)}/>
             </div>
