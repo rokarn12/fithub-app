@@ -12,36 +12,47 @@ import {
 const UserDashboard = () => {
     const {user} = useContext(UserContext);
     return ((user ? ( // user is logged in, show their dashboard
-        <div className="container text-center">
-            <div className="alert alert-primary p-5">
+        <div className="container text-center mt-5 mb-5">
+            <div id="dashboard">
+                <h1>FitHub</h1>
+                <h2>Expect more from your clothes.</h2>
+            </div>
+            {/* <div id="dashboard">
                 <h1>{user && <span >{user}'s</span>}{" "}
                     Personal Dashboard</h1>
-            </div>
+            </div> */}
+            <div id="line"></div>
 
             <div className="container">
                 <div className="container">
                     <Link to="/additempage">
-                        <Button id="button" variant="contained">Add Item</Button> {' '}
+                        <Button id="button" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} variant="contained">Add Item</Button> {' '}
                     </Link>
+                    <br/>
                     
                     <Link to="/ecloset">
-                        <Button variant="contained">E-Closet</Button>{' '}
+                        <Button id="button" style={{backgroundColor: "rgba(0, 81, 189, 1)"}} variant="contained">E-Closet</Button>{' '}
                     </Link>
+                    <br/>
                     <Link to="/savedoutfits">
-                        <Button variant="contained">Saved Outfits</Button>{' '}
+                        <Button id="button" style={{backgroundColor: "rgba(0, 55, 128, 1)"}} variant="contained">Saved Outfits</Button>{' '}
+                    </Link>
+                    <br/>
+                    <Link to="/outfitgenerator">
+                        <Button id="button" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} variant="contained" >Generate New Outfit</Button>
                     </Link>
                     
                     {/* <br></br> */}
                 </div>
-                <div className="container">
+                {/* <div className="container">
                     <br></br>
-                    <Link to="/outfitgenerator">
-                        <Button variant="contained" >Generate New Outfit</Button>
-                    </Link>
+                    
                     <br></br>
                         
-                </div>
+                </div> */}
             </div>
+
+            
 
         </div>
         // add user dashboard functionality here
