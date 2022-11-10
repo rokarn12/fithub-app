@@ -12,6 +12,7 @@ exports.addItem = async (req, res) => {
     });
 };
 
+// gets all items associated with user's username
 exports.userItems = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
