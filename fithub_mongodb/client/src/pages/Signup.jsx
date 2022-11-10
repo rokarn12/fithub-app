@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import './css/home.css';
+
 // design
 import {TextField,
     InputAdornment,
@@ -52,11 +54,11 @@ const Signup = () => {
 
     return (
         <div className="container mt-5 mb-5 col-10 col-sm-8 col-md-6 col-lg-5">
-            <div className="text-center mb-5 alert alert-primary">
-                <label htmlFor="" className="h2">
-                    Sign Up for FitHub
-                </label>
+            <div id="dashboard" className="text-center">
+                <h1>Sign Up</h1>
             </div>
+            <div id="line"></div>
+            <br/>
 
             <div className="form-group">
                 <TextField 

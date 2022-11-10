@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 
 import { UserContext } from "../UserContext";
 
+import './css/home.css';
+
 // design
 import {TextField,
     InputAdornment,
@@ -46,11 +48,12 @@ const Login = () => {
 
     return (
         <div className="container mt-5 mb-5 col-10 col-sm-8 col-md-6 col-lg-5">
-            <div className="text-center mb-5 alert alert-primary">
-                <label htmlFor="" className="h2">
-                    Login
-                </label>
+            <div id="dashboard" className="text-center">
+                <h1>Login</h1>
             </div>
+            
+            <div id="line"></div>
+            <br/>
 
             <div className="form-group">
                 <TextField 
