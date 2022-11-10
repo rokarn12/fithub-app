@@ -49,7 +49,16 @@ const ECloset = () => {
     // window.alert("hi"); handlegetItems()
     const sortBy = async (e) => {
         console.log("yippipippi");
-        function byAlpha( a, b ) {
+        function byNameAlpha( a, b ) {
+            if ( a.itemName < b.itemName ){
+              return -1;
+            }
+            if ( a.itemName > b.itemName ){
+              return 1;
+            }
+            return 0;
+          }
+        function byClothingType( a, b ) {
             if ( a.clothingType < b.clothingType ){
               return -1;
             }
@@ -88,9 +97,10 @@ const ECloset = () => {
                   // redirect user back to add item page
                   navigate('/ecloset', {replace: true});
                   //apply sorting
-                  if (sortType === "Alphabetical") setAllItems((res.items).sort(byAlpha));
+                  if (sortType === "ClothingType") setAllItems((res.items).sort(byClothingType));
                   else if (sortType === "Color") setAllItems((res.items).sort(byColor));
                   else if (sortType === "Attire") setAllItems((res.items).sort(byAttire));
+                  else if (sortType === "Alphabetical") setAllItems((res.items).sort(byNameAlpha));
                   // console.log("successfully received all it")
               }
           } catch (err) {
@@ -113,6 +123,7 @@ const ECloset = () => {
                     <label for="sortType">Attire Type: </label>
                     <select name="sortType" id="sort" value={sortType} onChange={(e) => setSortType(e.target.value)}>
                     <option value="Alphabetical">Alphabetical</option>
+                    <option value="ClothingType">Clothing Type</option>
                     <option value="Color">Color</option>
                     <option value="Attire">Attire Type</option>
                     </select>
