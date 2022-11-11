@@ -32,22 +32,19 @@ const Home = () => {
                         apart your wardrobe looking for ideas on what to wear. Our software also lets you mix 
                         and match clothes, favorite outfits, plan outfits for the week, and our exclusive color 
                         algorithm will recommend clothes that will go well with the type of event, and the rest 
-                        of your fit. Don’t waste any more time cleaning up after trying on too many outfits. Try out the
-                        outfit generator below!</p>
+                        of your fit. Don’t waste any more time cleaning up after trying on too many outfits. </p>
                 </div>
             </div>
-            <div className="text-center col-lg"> 
-                <br></br>   
+            <div className="text-center col-lg">  
                 <h3>Ready to try it? Sign up below!</h3>
                 <Link className="nav-link" to="/signup">
                     <Button id="button" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} variant="contained">
                                 Sign Up
                     </Button>
                 </Link>
-                <br></br>
                 <h3>Already a user? Login below!</h3>
                 <Link className="nav-link" to="/login">
-                    <Button id="button" style={{backgroundColor: "rgba(0, 81, 189, 1)"}} variant="contained">
+                    <Button id="button" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} variant="contained">
                                 Login
                     </Button>
                 </Link>

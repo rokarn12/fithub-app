@@ -40,12 +40,14 @@ const AddItemPage = () => {
     };
     
     return (
-        <div className="container text-center" style={{marginTop: "8rem", backgroundColor: "powderblue"}}>
-            <div><h1>Add Item</h1></div>
-            <div className="d-flex flex-row mb-3" style={{marginTop: "30px"}}>
-                
-                <div id = 'ClothingType' className="container" style={{padding: "10px"}}>
-                    <label for="clothing-type">Clothing Type: </label>
+        <div className="container text-center" style={{marginTop: "8rem"}}>
+            <div id="dashboard">
+                <h1>Add Item</h1>
+            </div>   
+            <div id="line"></div>
+            <div className="d-flex flex-row mb-3" style={{marginTop: "30px", backgroundColor: ""}}>
+                <div id = 'ClothingType' className="container" style={{padding: "10px", fontSize: "20px"}}>
+                    <label for="clothing-type">Clothing Type:&ensp;</label>
                     <select name="clothing-type" id="clothing-types" value={clothingType} onChange={(e) => setClothingType(e.target.value)}>
                     <option value="T-shirt">T-shirt</option>
                     <option value="Shirt">Shirt</option>
@@ -58,8 +60,8 @@ const AddItemPage = () => {
                     </select>
                 </div>
                 {/*<div><Component value={color} onChange={(e) => setColor(e.target.value)}></Component></div>*/}
-                <div id='Color' className="container" style={{padding: "10px"}}>
-                    <label for="color">Color: </label>
+                <div id='Color' className="container" style={{padding: "10px", fontSize: "20px"}}>
+                    <label for="color">Color:&ensp;</label>
                     <select name="color" id="colors" value={color} onChange={(e) => setColor(e.target.value)}>
                     <option value="blue">Blue</option>
                     <option value="black">Black</option>
@@ -73,8 +75,8 @@ const AddItemPage = () => {
                     <option value="white">White</option>
                     </select>
                 </div>
-                <div id='AttireType' className="container" style={{padding: "10px"}}>
-                    <label for="attire-type">Attire Type: </label>
+                <div id='AttireType' className="container" style={{padding: "10px", fontSize: "20px"}}>
+                    <label for="attire-type">Attire Type:&ensp;</label>
                     <select name="attire-type" id="attire-types" value={attireType} onChange={(e) => setAttireType(e.target.value)}>
                     <option value="formal">Formal</option>
                     <option value="business-casual">Business Casual</option>

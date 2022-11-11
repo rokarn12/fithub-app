@@ -113,14 +113,15 @@ const ECloset = () => {
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center">
             <div className="container mt-5 mb-5 col-lg">
-                <div className="alert p-5">
+                <div id="dashboard">
                     <h1>E-Closet</h1>
-                </div>
-                <Button variant="contained" size="large" onClick={handlegetItems} >
+                </div>   
+                <div id="line"></div>
+                <Button id="button" variant="contained" size="large" onClick={handlegetItems} style={{backgroundColor: "rgba(0, 110, 255, 1)"}} >
                     Refresh E-Closet
                 </Button>
                 <div id='sorting' className="container">
-                    <label for="sortType">Attire Type: </label>
+                    <label for="sortType">Attire Type:&ensp;</label>
                     <select name="sortType" id="sort" value={sortType} onChange={(e) => setSortType(e.target.value)}>
                     <option value="Alphabetical">Alphabetical</option>
                     <option value="ClothingType">Clothing Type</option>
@@ -128,7 +129,7 @@ const ECloset = () => {
                     <option value="Attire">Attire Type</option>
                     </select>
                 </div>
-                <Button variant="contained" size="large" onClick={sortBy} >
+                <Button id="button" variant="contained" size="large" onClick={sortBy} style={{backgroundColor: "rgba(0, 37, 87, 1)"}} >
                     Sort
                 </Button>
                 <div>
