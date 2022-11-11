@@ -19,7 +19,7 @@ const Home = () => {
             <div >
                 <div id='back1' className="container mt-5 mb-5">
                     <div id="dashboard">
-                        <h1>FitHub</h1>
+                        <h1 id="fithub">FitHub</h1>
                         <h2>Expect more from your clothes.</h2>
                     </div>
                     <div id="line"></div>
@@ -38,16 +38,16 @@ const Home = () => {
             </div>
             <div className="text-center col-lg"> 
                 <br></br>   
-                <p>Ready to try it? Sign up below!</p>
+                <h3>Ready to try it? Sign up below!</h3>
                 <Link className="nav-link" to="/signup">
-                    <Button variant="contained">
+                    <Button id="button" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} variant="contained">
                                 Sign Up
                     </Button>
                 </Link>
                 <br></br>
-                <p>Already a user? Login below!</p>
+                <h3>Already a user? Login below!</h3>
                 <Link className="nav-link" to="/login">
-                    <Button variant="contained">
+                    <Button id="button" style={{backgroundColor: "rgba(0, 81, 189, 1)"}} variant="contained">
                                 Login
                     </Button>
                 </Link>

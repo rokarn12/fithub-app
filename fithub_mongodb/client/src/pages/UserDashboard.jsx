@@ -14,7 +14,7 @@ const UserDashboard = () => {
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center mt-5 mb-5">
             <div id="dashboard">
-                <h1>FitHub</h1>
+                <h1 id="fithub">FitHub</h1>
                 <h2>Expect more from your clothes.</h2>
             </div>
             {/* <div id="dashboard">

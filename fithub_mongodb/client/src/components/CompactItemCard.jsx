@@ -7,12 +7,39 @@ import {
 
 const CompactItemCard = (props) => {
 
+    var imgSrc = props.img_src;
+
+    switch (props.article) {
+        case "Hat":
+            imgSrc = require('../pages/images/cap.png');
+            break;
+        case "Shirt":
+            imgSrc = require('../pages/images/tshirt.png');
+            break;
+        case "T-Shirt":
+            imgSrc = require('../pages/images/tshirt.png');
+            break;
+        case "Shorts":
+            imgSrc = require('../pages/images/shorts.png');
+            break;
+        case "Pants":
+            imgSrc = require('../pages/images/pants.png');
+            break;
+        case "Shoes":
+            imgSrc = require('../pages/images/sneakers.png');
+            break;
+    }
+
     return (
-        <div id='itemCard' className='media'>
-            <img id='img_icon' src={props.img_src} className='mr-3' alt='img1' style={{backgroundColor: props.color}}></img>
-            <div className='media-body text-left'>
+        <div classname="container" style={{display: "inline-block"}}>
+            <div id='itemCard' className='media'>
+                <img id='img_icon' src={imgSrc} className='mr-3' alt='img1' style={{borderColor: props.color}}></img>
+            </div>
+            <div className='media-body text-centered'>
                 <h4 className='mt-0 mb-1'>{props.article}</h4>
-                <p classname='mt-0 mb-1'>Color: {props.color} <b>|</b> Type: {props.type}</p>
+                <h5 className='mt-0 mb-1'>{props.name}</h5>
+                <p classname='mt-0 mb-1'>Color: {props.color} </p>
+                <p> Type: {props.type}</p>
             </div>
         </div>
     );

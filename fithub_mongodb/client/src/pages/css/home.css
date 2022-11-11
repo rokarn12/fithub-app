@@ -8,6 +8,11 @@
     animation: item-move 10s infinite;
 } */
 
+#fithub {
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+
 #button {
     width: 20em;
     min-height: 5em;
