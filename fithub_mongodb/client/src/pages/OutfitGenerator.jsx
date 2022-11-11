@@ -36,12 +36,17 @@ const OutfitGenerator = () => {
 
     const handleGetShirts = async (e) => {
         e.preventDefault();
+        console.log("getting shirts");
         
         try {
             const res = await getShirts(user);
-            if (res.error) toast.error(res.error);
+            if (res.error) {
+                console.log("error getting shirts");
+                toast.error(res.error);
+            }
             else {
                 toast.success(res.message);
+                console.log("setting shirts")
                 setShirts(res.shirts);
                 //navigate('/ecloset', {replace: true});
                 console.log("added item");
@@ -85,6 +90,22 @@ const OutfitGenerator = () => {
         }
     };
 
+    const fillAllItemLists = async(e) => {
+        console.log("fill list called");
+        //e.preventDefault();
+
+        try {
+            console.log("trying");
+            handleGetHats();
+            handleGetShirts();
+            handleGetPants();
+            handleGetShoes();
+            console.log("all item lists filled");
+        } catch (err) {
+            toast.error(err);
+        }
+    }
+
     const outfits = [
         ["White", "Grey", "MidnightBlue", "SlateGrey"],
         ["Red", "Grey", "SlateGrey", "White"],
@@ -111,6 +132,8 @@ const OutfitGenerator = () => {
     const [isDisabled, toggleDisable] = useState(false);
 
     const changeStyle = (event) => {
+        console.log("calling fill list");
+        fillAllItemLists();
         console.log("clicked button", outfit_counter);
         // start animation state
         animate1("outfit2");
