@@ -33,6 +33,8 @@ const userRoutes = require("./routes/user");
 app.use("/", userRoutes);
 const itemRoutes = require("./routes/closet");
 app.use("/", itemRoutes);
+const outfitRoutes = require("./routes/outfit");
+app.use("/", outfitRoutes);
 
 // port
 const port = process.env.PORT || 8080;

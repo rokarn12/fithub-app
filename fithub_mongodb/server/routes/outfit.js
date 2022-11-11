@@ -5,10 +5,10 @@ const router = express.Router();
 const { createOutfit } = require("../controllers/outfit");
 
 // middlewares
-
+const { outfitValidator } = require("../middlewares/outfit");
 
 // api routes
-router.post("/createoutfit", createOutfit);
+router.post("/createoutfit", createOutfit, outfitValidator);
 
 
 module.exports = router;

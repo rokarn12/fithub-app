@@ -8,11 +8,11 @@ export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom
                 Accept: 'application/json',
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(outfit)
         });
 
         return await res.json();
     } catch (err) {
-        throw new Error(`Cannot add item at this time. ${err}`);
+        throw new Error(`Cannot create outfit at this time. ${err}`);
     }
 };
