@@ -1,9 +1,10 @@
+// function to add an item to the database
 export const addItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
-    const item = { user, itemName, clothingType, color, attireType };
+    const item = { user, itemName, clothingType, color, attireType }; // build item based on user info/inputs
 
-    try {
-        const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, {
-            method: 'POST',
+    try { // try/catch block to avoid errors
+        const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, { // API route
+            method: 'POST', // post entry to database in JSON form
             headers: {
                 Accept: 'application/json',
                 "Content-Type": "application/json"
@@ -11,28 +12,22 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
             body: JSON.stringify(item)
         });
 
-        return await res.json();
-    } catch (err) {
+        return await res.json(); // wait for response
+    } catch (err) { // if we could not get a response, throw an error
         throw new Error(`Cannot add item at this time. ${err}`);
     }
 };
 
-/*
-export const removeItem = async ({ id } = {}) => {
-    
-};
-*/
-
+// function to get user's items
 export const getItems = async ({ user } = {}) => {
-    const username = { user };
-    try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, {
-            method: "GET",
+    const username = { user }; // username is passed in as argument
+    try { // try/catch block to avoid errors
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, { // API route
+            method: "GET", // retrieve entry from database
             credentials: "include",
-            //body: JSON.stringify(username)
         });
         return res.json();
-    } catch (err) {
+    } catch (err) { // if we could not get a response, throw an error
         throw new Error("Could not get items.");
     }
 };
