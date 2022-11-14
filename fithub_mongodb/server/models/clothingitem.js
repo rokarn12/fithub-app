@@ -6,34 +6,30 @@ const eventType = new Array("relaxed", "casual", "businessCasual", "formal");
 
 const clothingItemSchema = new mongoose.Schema(
     {
-        user: {
+        user: { // every clothing item should be saved to a certain user
             type: String,
             required: true,
             ref: 'User',
         },
-        itemName: {
+        itemName: { // user's have the ability to name their clothing item
             type: String,
             required: true,
         },
-        // itemID: {
-        //     type: new mongoose.Types.ObjectId,
-        //     required: true,
-        // },
-        clothingType: {
+        clothingType: { // hat, shirt, pants, shoes, etc.
             type: String,
             required: true,
         },
-        color: {
+        color: { // user's must specify a color for their item
             type: String,
             required: true,
         },
-        attireType: {
+        attireType: { // casual, business casual, formal, etc.
             type: String,
             required: true,
         },
     },
     {
-        timestamps: true,
+        timestamps: true, // record when this entry was entered
     }
 );
 

@@ -1,9 +1,10 @@
+// function to add an item to the database
 export const addItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
-    const item = { user, itemName, clothingType, color, attireType };
+    const item = { user, itemName, clothingType, color, attireType }; // build item based on user info/inputs
 
-    try {
-        const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, {
-            method: 'POST',
+    try { // try/catch block to avoid errors
+        const res = await fetch (`${process.env.REACT_APP_API_URL}/additem`, { // API route
+            method: 'POST', // post entry to database in JSON form
             headers: {
                 Accept: 'application/json',
                 "Content-Type": "application/json"
@@ -11,19 +12,18 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
             body: JSON.stringify(item)
         });
 
-        return await res.json();
-    } catch (err) {
+        return await res.json(); // wait for response
+    } catch (err) { // if we could not get a response, throw an error
         throw new Error(`Cannot add item at this time. ${err}`);
     }
 };
 
-
 export const removeItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
-    const item = { user, itemName, clothingType, color, attireType };
+    const item = { user, itemName, clothingType, color, attireType }; // build item based on user info/inputs
 
-    try {
-        const res = await fetch (`${process.env.REACT_APP_API_URL}/removeitem`, {
-            method: 'POST',
+    try { // try/catch block to avoid errors
+        const res = await fetch (`${process.env.REACT_APP_API_URL}/removeitem`, { // API route
+            method: 'POST', // post entry to database in JSON form
             headers: {
                 Accept: 'application/json',
                 "Content-Type": "application/json"
@@ -31,34 +31,43 @@ export const removeItem = async ({ user, itemName, clothingType, color, attireTy
             body: JSON.stringify(item)
         });
 
-        return await res.json();
-    } catch (err) {
+        return await res.json(); // wait for response
+    } catch (err) { // if we could not get a response, throw an error
         throw new Error(`Cannot remove item at this time. ${err}`);
     }
 };
 
-
-export const getItems = async ({ user } = {}) => {
-    const username = { user };
-    try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+// function to get user's items
+export const getItems = async (user) => {
+    //const username = { user }; // username is passed in as argument
+    console.log("user is: ", user.user);
+    try { // try/catch block to avoid errors
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, { // API route
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
+
         return res.json();
-    } catch (err) {
+    } catch (err) { // if we could not get a response, throw an error
+        console.log("got an error");
         throw new Error("Could not get items.");
     }
 };
 
-export const getHats = async ({ user } = {}) => {
+export const getHats = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/hats`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -66,13 +75,16 @@ export const getHats = async ({ user } = {}) => {
     }
 };
 
-export const getShirts = async ({ user } = {}) => {
+export const getShirts = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shirts`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -80,13 +92,16 @@ export const getShirts = async ({ user } = {}) => {
     }
 };
 
-export const getPants = async ({ user } = {}) => {
+export const getPants = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/pants`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -94,13 +109,16 @@ export const getPants = async ({ user } = {}) => {
     }
 };
 
-export const getShoes = async ({ user } = {}) => {
+export const getShoes = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shoes`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {

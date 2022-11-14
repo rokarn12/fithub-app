@@ -27,7 +27,8 @@ const ECloset = () => {
         e.preventDefault();
         try {
             console.log("1");
-            const res = await getItems(user);
+            console.log(user);
+            const res = await getItems({user});
             console.log("success");
             if (res.error) toast.error(res.error);
             else {

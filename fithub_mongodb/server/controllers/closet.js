@@ -5,6 +5,7 @@ require("dotenv").config();
 
 exports.addItem = async (req, res) => {
     const item = new ClothingItem(req.body);
+    console.log(item);
     await item.save();
 
     res.status(202).json({
@@ -22,10 +23,9 @@ exports.removeItem = async (req, res) => {
 
 // gets all items associated with user's username
 exports.userItems = async (req, res) => {
-    // const {username} = req.user; 
-    console.log("****");
-    const items = await ClothingItem.find({ // await ?
-        user: "ron"
+
+    const items = await ClothingItem.find({
+        user: req.body.user
     });
 
     return res.status(200).json({
@@ -38,7 +38,7 @@ exports.getUserHats = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
     const hats = await ClothingItem.find({ // await ?
-        user: "ron",
+        user: req.body.user,
         clothingType: "Hat"
     });
 
@@ -52,7 +52,7 @@ exports.getUserShirts = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
     const shirts = await ClothingItem.find({ // await ?
-        user: "ron",
+        user: req.body.user,
         clothingType: "Shirt"
     });
 
@@ -66,7 +66,7 @@ exports.getUserPants = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
     const pants = await ClothingItem.find({ // await ?
-        user: "ron",
+        user: req.body.user,
         clothingType: "Pants"
     });
 
@@ -80,7 +80,7 @@ exports.getUserShoes = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
     const shoes = await ClothingItem.find({ // await ?
-        user: "ron",
+        user: req.body.user,
         clothingType: "Shoes"
     });
 
