@@ -17,6 +17,10 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
     }
 };
 
+export const removeItem = async ({ id } = {}) => {
+    
+};
+
 export const getItems = async ({ user } = {}) => {
     const username = { user };
     try {

@@ -45,7 +45,7 @@ const itemCard = (props) => {
             </div>
             <div>
                 <Button variant="outlined">
-                    EDIT
+                    REMOVE
                 </Button>
             </div>
         </div>
