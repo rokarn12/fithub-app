@@ -16,3 +16,16 @@ export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom
         throw new Error(`Cannot create outfit at this time. ${err}`);
     }
 };
+
+export const getOutfits = async ({ user } = {}) => {
+    const username = { user };
+    try { 
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/outfits`, { // API route
+            method: "GET", 
+            credentials: "include",
+        });
+        return res.json();
+    } catch (err) { 
+        throw new Error("Could not get outfit.");
+    }
+};

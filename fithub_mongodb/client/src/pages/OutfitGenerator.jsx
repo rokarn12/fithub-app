@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
 import { createOutfit } from '../api/outfit';
-//import { set } from 'mongoose';
 
 const OutfitGenerator = () => {
     const {user} = useContext(UserContext);
@@ -199,7 +198,7 @@ const OutfitGenerator = () => {
                 </Button>
                 &ensp;
                 <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} disabled={isDisabled} onClick={buildOutfit}>
-                    Create Outfit
+                    Save This Outfit
                 </Button>
                 <div id="line"></div>
                     <div className={ani}>

@@ -20,6 +20,9 @@ const SavedOutfits = () => {
                 <h1>Saved Outfits</h1>
             </div>   
             <div id="line"></div>
+            <Button id="button" variant="contained" size="large" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} >
+                Refresh E-Closet
+            </Button>
             <div className="container">
                 <h3>OutfitName1</h3>
                 <CompactItemCard article='Hat' color ={"red"} type='Casual' name = {itemName}/>

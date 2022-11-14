@@ -12,3 +12,16 @@ exports.createOutfit = async (req, res) => {
     });
 };
 
+exports.userOutfits = async (req, res) => {
+    // const {username} = req.user; 
+    console.log("****");
+    const items = await outfitObject.find({ // await ?
+        user: "ron"
+    });
+
+    return res.status(200).json({
+        message: "User's outfits returned.",
+        items
+    });
+};
+
