@@ -6,28 +6,28 @@ const outfitSchema = new mongoose.Schema(
     {
         user: {
             type: String,
-            required: true,
+            //required: true,
             ref: 'User',
         },
         outfitName: {
-            type: ClothingItem,
-            required: true,
+            type: String,
+            //required: true,
         },
         fitHat: {
-            type: ClothingItem,
+            type: mongoose.Schema.Types.Mixed,
             //required: true,
         },
         fitTop: {
-            type: ClothingItem,
-            required: true,
+            type: mongoose.Schema.Types.Mixed,
+            //required: true,
         },
         fitBottom: {
-            type: ClothingItem,
-            required: true,
+            type: mongoose.Schema.Types.Mixed,
+            //required: true,
         },
         fitShoes: {
-            type: ClothingItem,
-            required: true,
+            type: mongoose.Schema.Types.Mixed,
+            //required: true,
         },
     },
     {
@@ -35,4 +35,4 @@ const outfitSchema = new mongoose.Schema(
     }
 );
 
-module.exports = outfitObject = mongoose.model('Outfit', outfitSchema);
+module.exports = outfitObject = mongoose.model('outfitObject', outfitSchema);

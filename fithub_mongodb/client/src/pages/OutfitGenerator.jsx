@@ -8,6 +8,7 @@ import {
     Button
 } from '@mui/material';
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
+import { createOutfit } from '../api/outfit';
 //import { set } from 'mongoose';
 
 const OutfitGenerator = () => {
@@ -18,7 +19,7 @@ const OutfitGenerator = () => {
     const [shoes, setShoes] = useState([]);
 
     const handleGetHats = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         
         try {
             const res = await getHats(user);
@@ -35,7 +36,7 @@ const OutfitGenerator = () => {
     };
 
     const handleGetShirts = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         console.log("getting shirts");
         
         try {
@@ -57,7 +58,7 @@ const OutfitGenerator = () => {
     };
 
     const handleGetPants = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         
         try {
             const res = await getPants(user);
@@ -74,7 +75,7 @@ const OutfitGenerator = () => {
     };
 
     const handleGetShoes = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         
         try {
             const res = await getShoes(user);
@@ -91,8 +92,6 @@ const OutfitGenerator = () => {
     };
 
     const fillAllItemLists = async(e) => {
-        console.log("fill list called");
-        //e.preventDefault();
 
         try {
             console.log("trying");
@@ -164,7 +163,21 @@ const OutfitGenerator = () => {
             increase(outfit_counter + 1);
         }
         
-    } 
+    }
+
+    const buildOutfit = async (e) => {
+        try {
+            const res = await createOutfit(user, "test outfit", hats[0], shirts[0], pants[0], shoes[0]);
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                //navigate('/ecloset', {replace: true});
+                console.log("created outfit");
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    }
 
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center">
@@ -195,6 +208,9 @@ const OutfitGenerator = () => {
                 </Button> */}
                 <Button variant="contained" size="large" disabled={isDisabled} onClick={changeStyle}>
                     Generate New Outfit!
+                </Button>
+                <Button variant="contained" size="large" disabled={isDisabled} onClick={buildOutfit}>
+                    Create Outfit
                 </Button>
                 <br></br>
                 </div>
