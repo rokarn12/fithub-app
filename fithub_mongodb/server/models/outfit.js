@@ -1,33 +1,33 @@
 const mongoose = require('mongoose');
-const ClothingItem = require('./clothingitem');
+// const ClothingItem = require('./clothingitem');
 
 
 const outfitSchema = new mongoose.Schema(
     {
         user: {
             type: String,
-            //required: true,
+            required: true,
             ref: 'User',
         },
         outfitName: {
             type: String,
-            //required: true,
+            required: true,
         },
         fitHat: {
-            type: mongoose.Schema.Types.Mixed,
-            //required: true,
+            type: String,
+            required: true,
         },
         fitTop: {
-            type: mongoose.Schema.Types.Mixed,
-            //required: true,
+            type: String,
+            required: true,
         },
         fitBottom: {
-            type: mongoose.Schema.Types.Mixed,
-            //required: true,
+            type: String,
+            required: true,
         },
         fitShoes: {
-            type: mongoose.Schema.Types.Mixed,
-            //required: true,
+            type: String,
+            required: true,
         },
     },
     {

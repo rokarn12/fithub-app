@@ -18,6 +18,13 @@ const OutfitGenerator = () => {
     const [pants, setPants] = useState([]);
     const [shoes, setShoes] = useState([]);
 
+    // test items: "636bfd5bdc8a74a849237497", "636bf7e38439b103746bd34e", "636bfc4664b46d82576dc2d6", "636b40b077c9e48761bae76f"
+    const [outfitName, setOutfitName] = useState("defaultOutfitName");
+    const [fitHat, setFitHat] = useState("636bfd5bdc8a74a849237497");
+    const [fitTop, setFitTop] = useState("636bf7e38439b103746bd34e");
+    const [fitBottom, setFitBottom] = useState("636bfc4664b46d82576dc2d6");
+    const [fitShoes, setFitShoes] = useState("636b40b077c9e48761bae76f");
+
     const handleGetHats = async (e) => {
         //e.preventDefault();
         
@@ -167,10 +174,15 @@ const OutfitGenerator = () => {
 
     const buildOutfit = async (e) => {
         try {
-            const res = await createOutfit(user, "test outfit", hats[0], shirts[0], pants[0], shoes[0]);
+            console.log("outfit: ", user, outfitName, fitHat, fitTop, fitBottom, fitShoes);
+            // const res = await createOutfit(user, "test outfit", hats[0]["_id"], shirts[0]["_id"], pants[0]["_id"], shoes[0]["_id"]);
+            // const res = await createOutfit(user, "test outfit", "636bfd5bdc8a74a849237497", "636bf7e38439b103746bd34e", "636bfc4664b46d82576dc2d6", "636b40b077c9e48761bae76f");
+            const res = await createOutfit({user, outfitName, fitHat, fitTop, fitBottom, fitShoes});
+            
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
+                window.alert("successfully built outfit");
                 //navigate('/ecloset', {replace: true});
                 console.log("created outfit");
             }
@@ -189,6 +201,7 @@ const OutfitGenerator = () => {
                 <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} disabled={isDisabled} onClick={buildOutfit}>
                     Create Outfit
                 </Button>
+                <div id="line"></div>
                     <div className={ani}>
                         <ItemCard article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
                                 description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>

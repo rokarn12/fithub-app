@@ -5,6 +5,7 @@ require("dotenv").config();
 
 exports.addItem = async (req, res) => {
     const item = new ClothingItem(req.body);
+    console.log(item);
     await item.save();
 
     res.status(202).json({
