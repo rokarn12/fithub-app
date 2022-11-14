@@ -28,7 +28,7 @@ const OutfitGenerator = () => {
         //e.preventDefault();
         
         try {
-            const res = await getHats(user);
+            const res = await getHats({user});
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
@@ -46,7 +46,7 @@ const OutfitGenerator = () => {
         console.log("getting shirts");
         
         try {
-            const res = await getShirts(user);
+            const res = await getShirts({user});
             if (res.error) {
                 console.log("error getting shirts");
                 toast.error(res.error);
@@ -67,7 +67,7 @@ const OutfitGenerator = () => {
         //e.preventDefault();
         
         try {
-            const res = await getPants(user);
+            const res = await getPants({user});
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
@@ -84,7 +84,7 @@ const OutfitGenerator = () => {
         //e.preventDefault();
         
         try {
-            const res = await getShoes(user);
+            const res = await getShoes({user});
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
