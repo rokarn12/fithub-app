@@ -43,6 +43,7 @@ const ItemCard = (props) => {
     var article = props.article
     var type = props.type
     var color = props.color
+    var inCloset = props.inCloset
 
     const handleRemoveItem = async (e) => {
         e.preventDefault();
@@ -72,9 +73,11 @@ const ItemCard = (props) => {
                 <p>&ensp;{props.description}</p>
             </div>
             <div>
-                <Button variant="outlined" onClick={handleRemoveItem}>
-                    REMOVE
-                </Button>
+                {inCloset && 
+                    <Button variant="outlined" onClick={handleRemoveItem}>
+                        REMOVE
+                    </Button>
+                }
             </div>
         </div>
     );

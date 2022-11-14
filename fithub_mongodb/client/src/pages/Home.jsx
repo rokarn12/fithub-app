@@ -8,9 +8,6 @@ import {
     Button
 } from '@mui/material';
 
-import ItemCard from './../components/ItemCard.jsx';
-import { textAlign } from "@mui/system";
-
 const Home = () => {
 
     return (

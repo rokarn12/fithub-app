@@ -135,7 +135,7 @@ const ECloset = () => {
                 </Button>
                 <div>
                     {allItems.map((item) => (
-                        <ItemCard article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
+                        <ItemCard inCloset = {true} article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
                     ))}
                 </div>
             </div>            

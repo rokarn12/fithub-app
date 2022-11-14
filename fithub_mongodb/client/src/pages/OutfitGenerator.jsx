@@ -202,13 +202,13 @@ const OutfitGenerator = () => {
                 </Button>
                 <div id="line"></div>
                     <div className={ani}>
-                        <ItemCard article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
+                        <ItemCard inCloset = {false} article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
                                 description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>
-                        <ItemCard article='Shirt' color ={color2} type='Casual' img_src={require('./images/tshirt.png')}
+                        <ItemCard inCloset = {false} article='Shirt' color ={color2} type='Casual' img_src={require('./images/tshirt.png')}
                                 description="We love this T-shirt, it has a light color to contrast your hat and shorts, what do you think?"/>
-                        <ItemCard article='Shorts' color ={color3} type='Casual' img_src={require('./images/shorts.png')}
+                        <ItemCard inCloset = {false} article='Shorts' color ={color3} type='Casual' img_src={require('./images/shorts.png')}
                                 description="These shorts match your other clothing perfectly!"/>
-                        <ItemCard article='Shoes' color ={color4} type='Casual' img_src={require('./images/sneakers.png')}
+                        <ItemCard inCloset = {false} article='Shoes' color ={color4} type='Casual' img_src={require('./images/sneakers.png')}
                                 description="Your schedule seems busy today, these should support you throughout the whole day."/>
                     </div>
                 </div>            
