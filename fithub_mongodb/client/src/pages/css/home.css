@@ -36,8 +36,8 @@ body {
 }
 
 #button {
-    width: 20em;
-    min-height: 5em;
+    width: 16em;
+    min-height: 3em;
     max-width: 70vw;
     margin: 1em;
     font-size: 20px;
