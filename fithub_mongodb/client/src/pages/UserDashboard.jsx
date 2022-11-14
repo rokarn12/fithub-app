@@ -17,10 +17,6 @@ const UserDashboard = () => {
                 <h1 id="fithub">FitHub</h1>
                 <h2>Expect more from your clothes.</h2>
             </div>
-            {/* <div id="dashboard">
-                <h1>{user && <span >{user}'s</span>}{" "}
-                    Personal Dashboard</h1>
-            </div> */}
             <div id="line"></div>
 
             <div className="container">

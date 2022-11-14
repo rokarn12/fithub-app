@@ -182,6 +182,13 @@ const OutfitGenerator = () => {
     return ((user ? ( // user is logged in, show their dashboard
         <div className="container text-center">
             <div id='back2' className="container mt-5 mb-5 col-lg">
+                <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} disabled={isDisabled} onClick={changeStyle}>
+                    Generate New Outfit
+                </Button>
+                &ensp;
+                <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} disabled={isDisabled} onClick={buildOutfit}>
+                    Create Outfit
+                </Button>
                     <div className={ani}>
                         <ItemCard article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
                                 description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>
@@ -193,7 +200,7 @@ const OutfitGenerator = () => {
                                 description="Your schedule seems busy today, these should support you throughout the whole day."/>
                     </div>
                 </div>            
-                <div>
+            <div>
                 {/* <Button variant="contained" size="large" onClick={handleGetHats} >
                     Get Hats
                 </Button>
@@ -206,13 +213,8 @@ const OutfitGenerator = () => {
                 <Button variant="contained" size="large" onClick={handleGetShoes} >
                     Get Shoes
                 </Button> */}
-                <Button variant="contained" size="large" disabled={isDisabled} onClick={changeStyle}>
-                    Generate New Outfit!
-                </Button>
-                <Button variant="contained" size="large" disabled={isDisabled} onClick={buildOutfit}>
-                    Create Outfit
-                </Button>
-                <br></br>
+                
+                {/* <br></br> */}
                 </div>
 
         </div>

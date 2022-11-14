@@ -93,7 +93,7 @@ const AddItemPage = () => {
                         value={itemName}
                         onChange={(e) => setitemName(e.target.value)}/>
             </div>
-            <Button variant="contained" style={{marginTop: "4rem"}} onClick={handleAddItem}>Add Item</Button>
+            <Button id="button" variant="contained" style={{marginTop: "4rem", backgroundColor: "rgba(0, 110, 255, 1)"}} onClick={handleAddItem}>Add Item</Button>
         </div>
     );
 };
