@@ -19,26 +19,36 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
 };
 
 // function to get user's items
-export const getItems = async ({ user } = {}) => {
-    const username = { user }; // username is passed in as argument
+export const getItems = async (user) => {
+    //const username = { user }; // username is passed in as argument
+    console.log("user is: ", user.user);
     try { // try/catch block to avoid errors
         const res = await fetch(`${process.env.REACT_APP_API_URL}/items`, { // API route
-            method: "GET", // retrieve entry from database
-            credentials: "include",
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
+
         return res.json();
     } catch (err) { // if we could not get a response, throw an error
+        console.log("got an error");
         throw new Error("Could not get items.");
     }
 };
 
-export const getHats = async ({ user } = {}) => {
+export const getHats = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/hats`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -46,13 +56,16 @@ export const getHats = async ({ user } = {}) => {
     }
 };
 
-export const getShirts = async ({ user } = {}) => {
+export const getShirts = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shirts`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -60,13 +73,16 @@ export const getShirts = async ({ user } = {}) => {
     }
 };
 
-export const getPants = async ({ user } = {}) => {
+export const getPants = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/pants`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {
@@ -74,13 +90,16 @@ export const getPants = async ({ user } = {}) => {
     }
 };
 
-export const getShoes = async ({ user } = {}) => {
+export const getShoes = async (user) => {
     const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shoes`, {
-            method: "GET",
-            credentials: "include",
-            //body: JSON.stringify(username)
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) {

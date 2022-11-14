@@ -9,10 +9,10 @@ const { itemValidator } = require("../middlewares/closet");
 
 // api routes
 router.post("/additem", addItem, itemValidator);
-router.get("/items", userItems);
-router.get("/hats", getUserHats);
-router.get("/shirts", getUserShirts);
-router.get("/pants", getUserPants);
-router.get("/shoes", getUserShoes);
+router.post("/items", userItems);
+router.post("/hats", getUserHats);
+router.post("/shirts", getUserShirts);
+router.post("/pants", getUserPants);
+router.post("/shoes", getUserShoes);
 
 module.exports = router;
