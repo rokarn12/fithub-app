@@ -27,7 +27,8 @@ const ECloset = () => {
         e.preventDefault();
         try {
             console.log("1");
-            const res = await getItems(user);
+            console.log(user);
+            const res = await getItems({user});
             console.log("success");
             if (res.error) toast.error(res.error);
             else {
@@ -88,7 +89,7 @@ const ECloset = () => {
           e.preventDefault();
           try {
               console.log("1");
-              const res = await getItems(user);
+              const res = await getItems({user});
               console.log("success");
               if (res.error) toast.error(res.error);
               else {
@@ -134,7 +135,6 @@ const ECloset = () => {
                 </Button>
                 <div>
                     {allItems.map((item) => (
-                        //<li key={index}>{"Name:" + item.ItemName + "\tClothing Type\t" + item.clothingType }</li>
                         <ItemCard article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
                     ))}
                 </div>

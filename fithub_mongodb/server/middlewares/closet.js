@@ -12,6 +12,8 @@ exports.itemValidator = (req, res, next) => {
 
     console.log("2****upload outfit******");
 
+    console.log("validator reached");
+
     const errors = req.validationErrors();
     if (errors) {
         const firstError = errors.map((err) => err.msg)[0];

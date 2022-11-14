@@ -1,5 +1,8 @@
 // import { Button } from "bootstrap";
-import React, { useState } from 'react';
+import React, {useContext, useState } from 'react';
+import { toast } from 'react-toastify';
+import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 import '../pages/css/home.css';
 
@@ -7,11 +10,12 @@ import {
     Button
 } from '@mui/material';
 
-const itemCard = (props) => {
+import { removeItem } from "../api/closet";
 
-    // const [imgSrc, updateImgSrc] = useState(props.img_src);
-    // const [imgSrc, setAllItems] = useState("");
-    // 
+const ItemCard = (props) => {
+
+    const {user} = useContext(UserContext);
+    const navigate = useNavigate();
     var imgSrc = props.img_src;
 
     switch (props.article) {
@@ -35,6 +39,30 @@ const itemCard = (props) => {
             break;
     }
 
+    var name = props.name
+    var article = props.article
+    var type = props.type
+    var color = props.color
+
+    const handleRemoveItem = async (e) => {
+        e.preventDefault();
+        
+        try {
+            const res = await removeItem({user, name, article, color, type});
+            if (res.error) toast.error(res.error);
+            else {
+                toast.success(res.message);
+                // redirect user back to add item page
+                navigate('/ecloset', {replace: true});
+                console.log("removed item");
+                window.alert("Item successfully removed!")
+                window.location.reload();
+            }
+        } catch (err) {
+            toast.error(err);
+        }
+    };
+
     return (
         <div id='itemCard' className='media'>
             <img id='img_icon' src={imgSrc} className='mr-3' alt='img1' style={{borderColor: props.color}}></img>
@@ -44,7 +72,7 @@ const itemCard = (props) => {
                 <p>&ensp;{props.description}</p>
             </div>
             <div>
-                <Button variant="outlined">
+                <Button variant="outlined" onClick={handleRemoveItem}>
                     REMOVE
                 </Button>
             </div>
@@ -52,4 +80,4 @@ const itemCard = (props) => {
     );
 };
 
-export default itemCard;
+export default ItemCard;
