@@ -17,11 +17,26 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
     }
 };
 
-/*
-export const removeItem = async ({ id } = {}) => {
-    
+
+export const removeItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
+    const item = { user, itemName, clothingType, color, attireType };
+
+    try {
+        const res = await fetch (`${process.env.REACT_APP_API_URL}/removeitem`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(item)
+        });
+
+        return await res.json();
+    } catch (err) {
+        throw new Error(`Cannot remove item at this time. ${err}`);
+    }
 };
-*/
+
 
 export const getItems = async ({ user } = {}) => {
     const username = { user };

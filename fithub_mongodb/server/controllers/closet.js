@@ -12,6 +12,14 @@ exports.addItem = async (req, res) => {
     });
 };
 
+exports.removeItem = async (req, res) => {
+    await ClothingItem.deleteOne(req.body);
+
+    res.status(202).json({
+        message: "Item successfully removed."
+    });
+};
+
 // gets all items associated with user's username
 exports.userItems = async (req, res) => {
     // const {username} = req.user; 
