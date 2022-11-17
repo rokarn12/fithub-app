@@ -2,7 +2,7 @@ const User = require("../models/user");
 const ClothingItem = require("../models/clothingitem");
 require("dotenv").config();
 
-
+//add item to closet
 exports.addItem = async (req, res) => {
     const item = new ClothingItem(req.body);
     console.log(item);
@@ -13,6 +13,7 @@ exports.addItem = async (req, res) => {
     });
 };
 
+//remove item from closet
 exports.removeItem = async (req, res) => {
     await ClothingItem.deleteOne(req.body);
 
@@ -34,6 +35,7 @@ exports.userItems = async (req, res) => {
     });
 };
 
+// gets all hats in the user's closet
 exports.getUserHats = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
@@ -48,6 +50,8 @@ exports.getUserHats = async (req, res) => {
     });
 };
 
+
+// gets all shirts in the user's closet
 exports.getUserShirts = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
@@ -62,6 +66,8 @@ exports.getUserShirts = async (req, res) => {
     });
 };
 
+
+// gets all pants in the user's closet
 exports.getUserPants = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");
@@ -76,6 +82,7 @@ exports.getUserPants = async (req, res) => {
     });
 };
 
+// gets all shoes in the user's closet
 exports.getUserShoes = async (req, res) => {
     // const {username} = req.user; 
     console.log("****");

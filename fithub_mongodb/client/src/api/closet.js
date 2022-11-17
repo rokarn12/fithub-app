@@ -18,6 +18,7 @@ export const addItem = async ({ user, itemName, clothingType, color, attireType 
     }
 };
 
+// function to remove an item from the database
 export const removeItem = async ({ user, itemName, clothingType, color, attireType } = {}) => {
     const item = { user, itemName, clothingType, color, attireType }; // build item based on user info/inputs
 
@@ -58,6 +59,7 @@ export const getItems = async (user) => {
     }
 };
 
+// function to get the user's hats
 export const getHats = async (user) => {
     const username = { user };
     try {
@@ -75,6 +77,7 @@ export const getHats = async (user) => {
     }
 };
 
+// function to get the user's shirts
 export const getShirts = async (user) => {
     const username = { user };
     try {
@@ -92,6 +95,7 @@ export const getShirts = async (user) => {
     }
 };
 
+// function to get user's pants
 export const getPants = async (user) => {
     const username = { user };
     try {
@@ -109,6 +113,7 @@ export const getPants = async (user) => {
     }
 };
 
+// function to get user's shoes
 export const getShoes = async (user) => {
     const username = { user };
     try {

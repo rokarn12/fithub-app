@@ -1,3 +1,4 @@
+//checks to see if there are enough clothes in the closet, if there are, creates a user generated outfit
 export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom, fitShoes } = {}) => {
     const outfit = { user, outfitName, fitHat, fitTop, fitBottom, fitShoes };
 
@@ -17,6 +18,7 @@ export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom
     }
 };
 
+// gets outfit created by user
 export const getOutfits = async ({ user } = {}) => {
     const username = { user };
     try { 

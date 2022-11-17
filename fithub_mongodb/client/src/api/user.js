@@ -1,3 +1,4 @@
+// registration page, allows users to enter username, email, password of their choice
 export const register = async ({ username, email, password } = {}) => {
     const user = { username, email, password };
 
@@ -17,6 +18,7 @@ export const register = async ({ username, email, password } = {}) => {
     }
 };
 
+// log in page, allows users with a pre registered account to log in using their credentials
 export const login = async ({ email, password } = {}) => {
     const user = { email, password };
 
@@ -37,6 +39,7 @@ export const login = async ({ email, password } = {}) => {
     }
 };
 
+//Log out if logged in
 export const logout = async () => {
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
@@ -49,6 +52,7 @@ export const logout = async () => {
     }
 };
 
+// gets user info
 export const getUser = async () => {
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/user`, {
