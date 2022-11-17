@@ -22,6 +22,7 @@ const Header = () => {
             navigate('/login');
         }).catch((err) => console.error(err));
     };
+    // sets the orientation of the header and links to dashboard, signup, logout, and login depending on if user is signed in
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to={user ? "/userdashboard" : "/"}>

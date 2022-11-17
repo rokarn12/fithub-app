@@ -18,6 +18,7 @@ const ItemCard = (props) => {
     const navigate = useNavigate();
     var imgSrc = props.img_src;
 
+    // Determining the image for the article of clothing for the item card
     switch (props.article) {
         case "Hat":
             imgSrc = require('../pages/images/cap.png');
@@ -45,6 +46,7 @@ const ItemCard = (props) => {
     var color = props.color
     var inCloset = props.inCloset
 
+    // handles item removal in e-closet if remove button is pressed
     const handleRemoveItem = async (e) => {
         e.preventDefault();
         
@@ -64,6 +66,7 @@ const ItemCard = (props) => {
         }
     };
 
+    // sets the orientation of the item card and its properties
     return (
         <div id='itemCard' className='media'>
             <img id='img_icon' src={imgSrc} className='mr-3' alt='img1' style={{borderColor: props.color}}></img>
@@ -73,6 +76,7 @@ const ItemCard = (props) => {
                 <p>&ensp;{props.description}</p>
             </div>
             <div>
+                {/* Sets the remove button and redirection to handle remove item */}
                 {inCloset && 
                     <Button variant="outlined" onClick={handleRemoveItem}>
                         REMOVE

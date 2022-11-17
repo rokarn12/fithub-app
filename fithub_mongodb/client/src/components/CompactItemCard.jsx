@@ -9,6 +9,7 @@ const CompactItemCard = (props) => {
 
     var imgSrc = props.img_src;
 
+    // Determining the image for the article of clothing for the item card
     switch (props.article) {
         case "Hat":
             imgSrc = require('../pages/images/cap.png');
