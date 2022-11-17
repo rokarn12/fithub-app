@@ -2,22 +2,23 @@ const mongoose = require('mongoose');
 const uuidv1 = require('uuidv1');
 const crypto = require('crypto');
 
+// mongoose schema for user
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
         trim: true,
-        unique: true,
-        lowercase: true,
+        unique: true, // cannot have duplicates
+        lowercase: true, // formatting for valid username
     },
     email: {
         type: String,
         required: true,
         trim: true,
-        unique: true,
-        lowercase: true,
+        unique: true, // cannot have duplicates
+        lowercase: true, // formatting for valid email
     },
-    hashedPassword: {
+    hashedPassword: { // raw passwords are not stored in database
         type: String,
         required: true,
     },
@@ -41,21 +42,22 @@ userSchema.virtual("password").set(function (password) {
 
 // methods
 userSchema.methods = {
-    encryptPassword: function (password) {
+    encryptPassword: function (password) { // encrypt password for user privacy protection
         if (!password) return "";
 
         try {
             return crypto
-                .createHmac("sha256", this.salt)
+                .createHmac("sha256", this.salt) // this hashes the password so that the raw text is not stored in database
                 .update(password)
                 .digest("hex");
         } catch (err) {
             return "";
         }
     },
-    authenticate: function (plainText) {
+    authenticate: function (plainText) { // this method checks if given password is the same as stored password
         return this.encryptPassword(plainText) === this.hashedPassword;
     },
 };
 
+// export user schema to database
 module.exports = mongoose.model("User", userSchema);
