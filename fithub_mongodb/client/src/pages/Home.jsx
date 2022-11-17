@@ -8,6 +8,7 @@ import {
     Button
 } from '@mui/material';
 
+// sets the home page's formatting, description, and links
 const Home = () => {
 
     return (
