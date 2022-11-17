@@ -27,7 +27,7 @@ exports.userRegisterValidator = (req, res, next) => {
     next();
 };
 
-exports.userById = async (req, res, next) => {
+exports.userById = async (req, res, next) => { // find the user by ID
     user.findById(req._id).exec((err, user) => {
         if (err || !user) {
             return res.status(404).json({

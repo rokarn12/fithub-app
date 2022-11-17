@@ -24,7 +24,7 @@ import SavedOutfits from "./pages/SavedOutfits";
 import { getUser } from "./api/user";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // state for user or no user
 
   useEffect(() => {
     const unsubscribe = getUser().then((res) => {
