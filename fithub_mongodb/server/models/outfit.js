@@ -1,31 +1,31 @@
 const mongoose = require('mongoose');
 // const ClothingItem = require('./clothingitem');
 
-
+// new mongoose schema for outfits
 const outfitSchema = new mongoose.Schema(
     {
-        user: {
+        user: { // associate with a username
             type: String,
             required: true,
             ref: 'User',
         },
-        outfitName: {
+        outfitName: { // user must name the outfit
+            type: String, // string saved is ID of the ClothingItem object
+            required: true,
+        },
+        fitHat: { // hat part of outfit
+            type: String, 
+            required: true,
+        },
+        fitTop: { // top part of outfit
             type: String,
             required: true,
         },
-        fitHat: {
+        fitBottom: { // bottom part of outfit
             type: String,
             required: true,
         },
-        fitTop: {
-            type: String,
-            required: true,
-        },
-        fitBottom: {
-            type: String,
-            required: true,
-        },
-        fitShoes: {
+        fitShoes: { // shoes part of outfit
             type: String,
             required: true,
         },
@@ -35,4 +35,5 @@ const outfitSchema = new mongoose.Schema(
     }
 );
 
+// export schema to database
 module.exports = outfitObject = mongoose.model('outfitObject', outfitSchema);

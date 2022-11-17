@@ -44,7 +44,7 @@ const ECloset = () => {
         }
     };
     
-    // sort function
+    //sort the e-closet items by selected sorting algorithm
     const sortBy = async (e) => {
           // sort by alphabetical order 
           function byNameAlpha( a, b ) {
@@ -68,7 +68,7 @@ const ECloset = () => {
             return 0;
           }
 
-          // sort bu color
+          // sort by color
           function byColor( a, b ) {
             if ( a.color < b.color ){
               return -1;
@@ -89,6 +89,8 @@ const ECloset = () => {
             }
             return 0;
           }
+
+          //refresh the page and apply the sorting when state is set
           e.preventDefault();
           try {
               // get items 

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const ClothingItem = require('./clothingitem');
 
+// this file is not currently used
 
 const closetSchema = new mongoose.Schema(
     {

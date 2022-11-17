@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const clothingTypes = new Array("hat", "shirt", "pants", "shoes");
-const colors = new Array("red", "blue", "yellow", "green", "orange", "purple", "black", "gray", "white", "brown");
-const eventType = new Array("relaxed", "casual", "businessCasual", "formal");
+// const clothingTypes = new Array("hat", "shirt", "pants", "shoes");
+// const colors = new Array("red", "blue", "yellow", "green", "orange", "purple", "black", "gray", "white", "brown");
+// const eventType = new Array("relaxed", "casual", "businessCasual", "formal");
 
+// new mongoose schema for ClothingItems
 const clothingItemSchema = new mongoose.Schema(
     {
         user: { // every clothing item should be saved to a certain user
@@ -33,4 +34,5 @@ const clothingItemSchema = new mongoose.Schema(
     }
 );
 
+// export the model to create a database
 module.exports = ClothingItem = mongoose.model('ClothingItem', clothingItemSchema);

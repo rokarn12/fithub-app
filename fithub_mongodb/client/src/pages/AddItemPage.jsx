@@ -21,9 +21,10 @@ const AddItemPage = () => {
     const [attireType, setAttireType] = useState("Formal");
     const [itemName, setitemName] = useState("defaultName");
 
+    //function to actually add the item to the backend database
     const handleAddItem = async (e) => {
         e.preventDefault();
-        
+        //attempt to add the item
         try {
             const res = await addItem({user, itemName, clothingType, color, attireType});
             if (res.error) toast.error(res.error);
@@ -46,6 +47,7 @@ const AddItemPage = () => {
             </div>   
             <div id="line"></div>
             <div className="d-flex flex-row mb-3" style={{marginTop: "30px", backgroundColor: ""}}>
+                {/*dropdown menu to select clothing type */}
                 <div id = 'ClothingType' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="clothing-type">Clothing Type:&ensp;</label>
                     <select name="clothing-type" id="clothing-types" value={clothingType} onChange={(e) => setClothingType(e.target.value)}>
@@ -59,7 +61,7 @@ const AddItemPage = () => {
                     <option value="Pullover">Pullover</option>
                     </select>
                 </div>
-                {/*<div><Component value={color} onChange={(e) => setColor(e.target.value)}></Component></div>*/}
+                {/*dropdown menu to select color*/}
                 <div id='Color' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="color">Color:&ensp;</label>
                     <select name="color" id="colors" value={color} onChange={(e) => setColor(e.target.value)}>
@@ -75,6 +77,7 @@ const AddItemPage = () => {
                     <option value="white">White</option>
                     </select>
                 </div>
+                {/*dropdown menu to select attire type*/}
                 <div id='AttireType' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="attire-type">Attire Type:&ensp;</label>
                     <select name="attire-type" id="attire-types" value={attireType} onChange={(e) => setAttireType(e.target.value)}>
@@ -84,12 +87,12 @@ const AddItemPage = () => {
                     </select>
                 </div>
             </div>
+            {/*User input field to set item name*/}
             <div className="d-flex flex-row mb-3 justify-content-center" style={{marginTop: "50px"}}>
                 <TextField 
                         size="small"
                         variant="outlined"
                         label="Name"
-                        //style={{marginLeft: "457px"}}
                         value={itemName}
                         onChange={(e) => setitemName(e.target.value)}/>
             </div>
@@ -100,7 +103,8 @@ const AddItemPage = () => {
 
 
 export default AddItemPage;
-/*
+
+/* NOT IMPLEMENTED
 class Component extends React.Component {
     render() {
         return <CirclePicker        
