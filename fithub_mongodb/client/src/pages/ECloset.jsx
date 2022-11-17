@@ -16,28 +16,26 @@ import {
 
 const ECloset = () => { 
 
+    // state variables
     const {user} = useContext(UserContext);
     const navigate = useNavigate();
     const [allItems, setAllItems] = useState([]);
     const [sortType, setSortType] = useState("Alphabetical");
 
-    // var allItems = [];
-
+    // get items from database and filter by user name
     const handlegetItems = async (e) => {
         e.preventDefault();
         try {
-            console.log("1");
-            console.log(user);
             const res = await getItems({user});
-            console.log("success");
+            console.log("successfully got user items");
             if (res.error) toast.error(res.error);
             else {
+                // display success message
                 toast.success(res.message);
-                // window.alert(res.message);
                 // redirect user back to add item page
                 navigate('/ecloset', {replace: true});
+                // use set state to update variable
                 setAllItems(res.items);
-                // console.log("successfully received all it")
             }
         } catch (err) {
             console.log(err);
@@ -45,12 +43,11 @@ const ECloset = () => {
             toast.error(err);
         }
     };
-    //handlegetItems();
-    console.log(allItems, " <- all");
-    // window.alert("hi"); handlegetItems()
+    
+    // sort function
     const sortBy = async (e) => {
-        console.log("yippipippi");
-        function byNameAlpha( a, b ) {
+          // sort by alphabetical order 
+          function byNameAlpha( a, b ) {
             if ( a.itemName < b.itemName ){
               return -1;
             }
@@ -59,7 +56,9 @@ const ECloset = () => {
             }
             return 0;
           }
-        function byClothingType( a, b ) {
+
+          // sort by clothing type name
+          function byClothingType( a, b ) {
             if ( a.clothingType < b.clothingType ){
               return -1;
             }
@@ -68,6 +67,8 @@ const ECloset = () => {
             }
             return 0;
           }
+
+          // sort bu color
           function byColor( a, b ) {
             if ( a.color < b.color ){
               return -1;
@@ -77,6 +78,8 @@ const ECloset = () => {
             }
             return 0;
           }
+
+          // sort by attire type
           function byAttire( a, b ) {
             if ( a.attireType < b.attireType ){
               return -1;
@@ -88,21 +91,19 @@ const ECloset = () => {
           }
           e.preventDefault();
           try {
-              console.log("1");
+              // get items 
               const res = await getItems({user});
-              console.log("success");
+              console.log("successfully got user items");
               if (res.error) toast.error(res.error);
               else {
                   toast.success(res.message);
-                  // window.alert(res.message);
                   // redirect user back to add item page
                   navigate('/ecloset', {replace: true});
-                  //apply sorting
+                  // apply sorting
                   if (sortType === "ClothingType") setAllItems((res.items).sort(byClothingType));
                   else if (sortType === "Color") setAllItems((res.items).sort(byColor));
                   else if (sortType === "Attire") setAllItems((res.items).sort(byAttire));
                   else if (sortType === "Alphabetical") setAllItems((res.items).sort(byNameAlpha));
-                  // console.log("successfully received all it")
               }
           } catch (err) {
               console.log(err);
@@ -121,6 +122,7 @@ const ECloset = () => {
                 <Button id="button" variant="contained" size="large" onClick={handlegetItems} style={{backgroundColor: "rgba(0, 110, 255, 1)"}} >
                     Refresh E-Closet
                 </Button>
+                {/* dropdown for sorting */}
                 <div id='sorting' className="container">
                     <label for="sortType">Attire Type:&ensp;</label>
                     <select name="sortType" id="sort" value={sortType} onChange={(e) => setSortType(e.target.value)}>
@@ -140,7 +142,6 @@ const ECloset = () => {
                 </div>
             </div>            
         </div>
-        // add user dashboard functionality here
     ) : ( // user is not logged in, show this message
         <div className="container text-center">
             <div className="alert alert-danger p-5">
