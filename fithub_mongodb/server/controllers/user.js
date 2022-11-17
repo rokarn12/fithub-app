@@ -2,21 +2,23 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+// controller to register a user
 exports.register = async (req, res) => {
     // check if user already exists
     const usernameExists = await User.findOne({
         username: req.body.username,
     });
+    // check if the email already exists
     const emailExists = await User.findOne({
         email: req.body.email,
     });
 
-    if (usernameExists) {
+    if (usernameExists) { // cannot register with existing username
         return res.status(403).json({
             error: "Username is taken",
         });
     }
-    if (emailExists) {
+    if (emailExists) { // cannot register with existing email
         return res.status(403).json({
             error: "Email has already been used",
         });
@@ -24,13 +26,14 @@ exports.register = async (req, res) => {
 
     // if new user, create a new user
     const user = new User(req.body);
-    await user.save()
+    await user.save() // save user to database
 
     res.status(201).json({
-        message: "Signup Successful! Please log in to proceed."
+        message: "Signup Successful! Please log in to proceed." // feedback message
     });
 };
 
+// controller for user login
 exports.login = async (req, res) => {
     // find user based on email
     const {email, password} = req.body;
@@ -39,11 +42,11 @@ exports.login = async (req, res) => {
         // if error or no user
         if (err || !user) {
             return res.status(401).json({
-                error: "Invalid Credentials",
+                error: "Invalid Credentials", // error message
             });
         }
 
-        // if user is found, use authenticate model from the model
+        // if user is found, use authenticate method from the user model
         if (!user.authenticate(password)) {
             return res.status(401).json({
                 error: "Invalid email or password",
@@ -62,25 +65,27 @@ exports.login = async (req, res) => {
         const { username } = user;
         return res.json({
             message: "Login successful!",
-            username,
+            username, // return username
         })
     });
 };
 
+// controller for user logout
 exports.logout = (req, res) => {
     // clear the cookie
-    res.clearCookie("jwt");
+    res.clearCookie("jwt"); // this logs the user out
 
     return res.json({
-        message: "Logout successful",
+        message: "Logout successful", // feedback message
     });
 };
 
+// retrieve the logged in user's username
 exports.getLoggedInUser = (req, res) => {
     const { username } = req.user;
 
     return res.status(200).json({
         message: "User is still logged in.",
-        username,
+        username, // return username
     });
 };
