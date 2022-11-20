@@ -10,6 +10,7 @@ import {
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
 import { createOutfit } from '../api/outfit';
 
+
 const OutfitGenerator = () => {
     // state variables
     const {user} = useContext(UserContext);
@@ -17,6 +18,7 @@ const OutfitGenerator = () => {
     const [shirts, setShirts] = useState([]);
     const [pants, setPants] = useState([]);
     const [shoes, setShoes] = useState([]);
+    const [randomOutift, setRandomOutfit] = useState([]);
 
     // current outfit with test values
     const [outfitName, setOutfitName] = useState("defaultOutfitName");
@@ -90,10 +92,10 @@ const OutfitGenerator = () => {
     const fillAllItemLists = async(e) => {
         try {
             console.log("filling all item lists");
-            handleGetHats();
-            handleGetShirts();
-            handleGetPants();
-            handleGetShoes();
+            await handleGetHats();
+            await handleGetShirts();
+            await handleGetPants();
+            await handleGetShoes();
             console.log("all item lists successfully filled");
         } catch (err) {
             toast.error(err);
@@ -127,22 +129,32 @@ const OutfitGenerator = () => {
     const [outfit_counter, increase] = useState(0);
     const [isDisabled, toggleDisable] = useState(false);
 
-    const changeStyle = (event) => {
+    const changeStyle = async(event) => {
         // fill all item lists
         console.log("calling fill list");
-        fillAllItemLists();
+        //await fillAllItemLists();
         console.log("clicked button", outfit_counter); // current state of temp outfit generator
         // start animation state
         animate1("outfit2");
         // disable the button
         toggleDisable(true);
         // change everything
-        setTimeout(function(){
-            setStyle_item1(outfits[outfit_counter][0]);
-            setStyle_item2(outfits[outfit_counter][1]);
-            setStyle_item3(outfits[outfit_counter][2]);
-            setStyle_item4(outfits[outfit_counter][3]);
-        },1000);
+        // setTimeout(function(){
+        //     setStyle_item1(outfits[outfit_counter][0]);
+        //     setStyle_item2(outfits[outfit_counter][1]);
+        //     setStyle_item3(outfits[outfit_counter][2]);
+        //     setStyle_item4(outfits[outfit_counter][3]);
+        // },1000);
+
+        setTimeout(function() {
+            var randomHat = hats[Math.floor(Math.random()*hats.length)];
+            console.log("random hat: ", randomHat);
+            var randomShirt = shirts[Math.floor(Math.random()*shirts.length)];
+            var randomPants = pants[Math.floor(Math.random()*pants.length)];
+            var randomShoes = shoes[Math.floor(Math.random()*shoes.length)];
+            setRandomOutfit([randomHat, randomShirt, randomPants, randomShoes]);
+            console.log("random outfit: ", randomOutift);
+        }, 1000);
         
         // return back to the original state
         setTimeout(function(){
@@ -180,8 +192,11 @@ const OutfitGenerator = () => {
             toast.error(err);
         }
     }
-
-    return ((user ? ( // user is logged in, show their outfit generator
+    window.onload = function() {
+        fillAllItemLists();
+    };
+    return (
+        (user ? ( // user is logged in, show their outfit generator
         <div className="container text-center">
             <div id='back2' className="container mt-5 mb-5 col-lg">
 
@@ -195,7 +210,7 @@ const OutfitGenerator = () => {
                 </Button>
                 <div id="line"></div>
                 
-                <div className={ani}>
+                {/* <div className={ani}>
                     <ItemCard inCloset = {false} article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
                             description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>
                     <ItemCard inCloset = {false} article='Shirt' color ={color2} type='Casual' img_src={require('./images/tshirt.png')}
@@ -204,6 +219,11 @@ const OutfitGenerator = () => {
                             description="These shorts match your other clothing perfectly!"/>
                     <ItemCard inCloset = {false} article='Shoes' color ={color4} type='Casual' img_src={require('./images/sneakers.png')}
                             description="Your schedule seems busy today, these should support you throughout the whole day."/>
+                </div> */}
+                <div>
+                    {randomOutift.map((item) => (
+                        <ItemCard inCloset = {true} article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
+                    ))}
                 </div>
             </div>  
         </div>
