@@ -36,6 +36,9 @@ const ECloset = () => {
                 navigate('/ecloset', {replace: true});
                 // use set state to update variable
                 setAllItems(res.items);
+
+                console.log(res.items);
+                res.items.forEach(element => console.log(element._id))
             }
         } catch (err) {
             console.log(err);
