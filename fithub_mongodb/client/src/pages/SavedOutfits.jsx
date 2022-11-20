@@ -49,11 +49,7 @@ const SavedOutfits = () => {
                 Refresh Outfits
             </Button>
             <div className="container">
-                <h3>OutfitName1</h3>
-                <CompactItemCard article='Hat' color ={"red"} type='Casual' name = {itemName}/>
-                <CompactItemCard article='Shirt' color ={"white"} type='Casual' name = {itemName}/>
-                <CompactItemCard article='Shorts' color ={"brown"} type='Casual' name = {itemName}/>
-                <CompactItemCard article='Shoes' color ={"grey"} type='Casual' name = {itemName}/>
+                {allOutfits.forEach(outfit => { })}
             </div>      
             <div className="container">
                 <h3>OutfitName2</h3>
