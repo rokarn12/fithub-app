@@ -23,7 +23,7 @@ const SavedOutfits = () => {
         // e.preventDefault();
         try {
             console.log("1");
-            console.log(user);
+            console.log("current user:", user);
             const res = await getOutfits({user});
             console.log("success");
             if (res.error) toast.error(res.error);

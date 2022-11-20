@@ -14,10 +14,10 @@ import { createOutfit } from '../api/outfit';
 const OutfitGenerator = () => {
     // state variables
     const {user} = useContext(UserContext);
-    const [hats, setHats] = useState([]);
-    const [shirts, setShirts] = useState([]);
-    const [pants, setPants] = useState([]);
-    const [shoes, setShoes] = useState([]);
+    // const [hats, setHats] = useState([]);
+    // const [shirts, setShirts] = useState([]);
+    // const [pants, setPants] = useState([]);
+    // const [shoes, setShoes] = useState([]);
     const [randomOutfit, setRandomOutfit] = useState([]);
 
     // current outfit with test values
@@ -29,17 +29,23 @@ const OutfitGenerator = () => {
 
     // get all hats for this user
     const handleGetHats = async () => {
-        //e.preventDefault();
+        // e.preventDefault();
         console.log("getting hats");
         try {
             const res = await getHats({user});
+            console.log("result: ", res);
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
-                setHats(res.hats);
+                console.log("hats: ", res.hats);
+                // setHats(res.hats);
+                // console.log("Set hats: ", hats);
+                console.log("user: ", user);
+                return (res.hats);
             }
         } catch (err) {
             toast.error(err);
+            return;
         }
     };
 
@@ -54,7 +60,8 @@ const OutfitGenerator = () => {
             }
             else {
                 toast.success(res.message);
-                setShirts(res.shirts);
+                // setShirts(res.shirts);
+                return (res.shirts);
             }
         } catch (err) {
             toast.error(err);
@@ -70,7 +77,8 @@ const OutfitGenerator = () => {
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
-                setPants(res.pants);
+                // setPants(res.pants);
+                return (res.pants);
             }
         } catch (err) {
             toast.error(err);
@@ -85,7 +93,8 @@ const OutfitGenerator = () => {
             if (res.error) toast.error(res.error);
             else {
                 toast.success(res.message);
-                setShoes(res.shoes);
+                // setShoes(res.shoes);
+                return(res.shoes);
             }
         } catch (err) {
             toast.error(err);
@@ -97,12 +106,15 @@ const OutfitGenerator = () => {
         try {
             console.log("filling all item lists");
             await handleGetHats();
+            // await handleGetHats();
             await handleGetShirts();
             await handleGetPants();
             await handleGetShoes();
             console.log("all item lists successfully filled");
+            return true;
         } catch (err) {
             toast.error(err);
+            return false;
         }
     }
 
@@ -132,11 +144,18 @@ const OutfitGenerator = () => {
         // fill all item lists
         console.log("calling fill list");
 
+        // var res = await fillAllItemLists();
+        // console.log("call status: ", res);
+
+        // setTimeout(function (){
+                
+        // }, 1000);
+
         // print all items received from database
-        console.log("Hats", hats);
-        console.log("Shirts:", shirts);
-        console.log("Pants:", pants);
-        console.log("Shoes:", shoes);
+        // console.log("Hats", hats);
+        // console.log("Shirts:", shirts);
+        // console.log("Pants:", pants);
+        // console.log("Shoes:", shoes);
 
         console.log("clicked button", outfit_counter); // current state of temp outfit generator
         // start animation state
@@ -150,6 +169,11 @@ const OutfitGenerator = () => {
         //     setStyle_item3(outfits[outfit_counter][2]);
         //     setStyle_item4(outfits[outfit_counter][3]);
         // },1000);
+
+        const hats = await handleGetHats();
+        const shirts = await handleGetShirts();
+        const pants = await handleGetPants();
+        const shoes = await handleGetShoes();
 
         setTimeout(function() {
             var randomHat = hats[Math.floor(Math.random()*hats.length)];
@@ -174,7 +198,7 @@ const OutfitGenerator = () => {
         }, 2000);
         
         // increase the outfit counter by 1
-        if (outfit_counter == outfits.length - 1) {
+        if (outfit_counter === outfits.length - 1) {
             increase(0);
         } else {
             increase(outfit_counter + 1);
@@ -201,7 +225,7 @@ const OutfitGenerator = () => {
     return (
         (user ? ( // user is logged in, show their outfit generator
         <div className="container text-center">
-            <body onLoad="fillAllItemLists()"></body>
+            {/* <body onLoad="fillAllItemLists()"></body> */}
             <div id='back2' className="container mt-5 mb-5 col-lg">
 
                 {/* buttons */}
