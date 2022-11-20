@@ -46,7 +46,7 @@ const AddItemPage = () => {
                 <h1>Add Item</h1>
             </div>   
             <div id="line"></div>
-            <div className="d-flex flex-row mb-3" style={{marginTop: "30px", backgroundColor: ""}}>
+            {/* <div className="d-flex flex-row mb-3" style={{marginTop: "30px", backgroundColor: ""}}> */}
                 {/*dropdown menu to select clothing type */}
                 <div id = 'ClothingType' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="clothing-type">Clothing Type:&ensp;</label>
@@ -89,7 +89,7 @@ const AddItemPage = () => {
                     <option value="casual">Casual</option>
                     </select>
                 </div>
-            </div>
+            {/* </div> */}
             {/*User input field to set item name*/}
             <div className="d-flex flex-row mb-3 justify-content-center" style={{marginTop: "50px"}}>
                 <TextField 
