@@ -18,7 +18,7 @@ const OutfitGenerator = () => {
     const [shirts, setShirts] = useState([]);
     const [pants, setPants] = useState([]);
     const [shoes, setShoes] = useState([]);
-    const [randomOutift, setRandomOutfit] = useState([]);
+    const [randomOutfit, setRandomOutfit] = useState([]);
 
     // current outfit with test values
     const [outfitName, setOutfitName] = useState("defaultOutfitName");
@@ -28,8 +28,9 @@ const OutfitGenerator = () => {
     const [fitShoes, setFitShoes] = useState("636b40b077c9e48761bae76f");
 
     // get all hats for this user
-    const handleGetHats = async (e) => {
+    const handleGetHats = async () => {
         //e.preventDefault();
+        console.log("getting hats");
         try {
             const res = await getHats({user});
             if (res.error) toast.error(res.error);
@@ -45,6 +46,7 @@ const OutfitGenerator = () => {
     // get all shirts for this user
     const handleGetShirts = async (e) => {
         //e.preventDefault();
+        console.log("getting shirts");
         try {
             const res = await getShirts({user});
             if (res.error) {
@@ -62,6 +64,7 @@ const OutfitGenerator = () => {
     // get all pants for this user
     const handleGetPants = async (e) => {
         //e.preventDefault();
+        console.log("getting pants");
         try {
             const res = await getPants({user});
             if (res.error) toast.error(res.error);
@@ -76,6 +79,7 @@ const OutfitGenerator = () => {
 
     // get all shoes for this user
     const handleGetShoes = async (e) => {
+        console.log("getting shoes");
         try {
             const res = await getShoes({user});
             if (res.error) toast.error(res.error);
@@ -89,7 +93,7 @@ const OutfitGenerator = () => {
     };
 
     // fill all lists
-    const fillAllItemLists = async(e) => {
+    const fillAllItemLists = async() => {
         try {
             console.log("filling all item lists");
             await handleGetHats();
@@ -110,11 +114,6 @@ const OutfitGenerator = () => {
         ["Yellow", "Grey", "SlateGrey", "White"],
     ]
 
-    // print all items received from database
-    console.log("Hats", hats);
-    console.log("Shirts:", shirts);
-    console.log("Pants:", pants);
-    console.log("Shoes:", shoes);
 
     // pre-set outfit generation
 
@@ -132,7 +131,13 @@ const OutfitGenerator = () => {
     const changeStyle = async(event) => {
         // fill all item lists
         console.log("calling fill list");
-        //await fillAllItemLists();
+
+        // print all items received from database
+        console.log("Hats", hats);
+        console.log("Shirts:", shirts);
+        console.log("Pants:", pants);
+        console.log("Shoes:", shoes);
+
         console.log("clicked button", outfit_counter); // current state of temp outfit generator
         // start animation state
         animate1("outfit2");
@@ -153,7 +158,7 @@ const OutfitGenerator = () => {
             var randomPants = pants[Math.floor(Math.random()*pants.length)];
             var randomShoes = shoes[Math.floor(Math.random()*shoes.length)];
             setRandomOutfit([randomHat, randomShirt, randomPants, randomShoes]);
-            console.log("random outfit: ", randomOutift);
+            console.log("random outfit: ", randomOutfit);
         }, 1000);
         
         // return back to the original state
@@ -192,12 +197,11 @@ const OutfitGenerator = () => {
             toast.error(err);
         }
     }
-    window.onload = function() {
-        fillAllItemLists();
-    };
+
     return (
         (user ? ( // user is logged in, show their outfit generator
         <div className="container text-center">
+            <body onLoad="fillAllItemLists()"></body>
             <div id='back2' className="container mt-5 mb-5 col-lg">
 
                 {/* buttons */}
@@ -221,7 +225,7 @@ const OutfitGenerator = () => {
                             description="Your schedule seems busy today, these should support you throughout the whole day."/>
                 </div> */}
                 <div>
-                    {randomOutift.map((item) => (
+                    {randomOutfit.map((item) => (
                         <ItemCard inCloset = {true} article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
                     ))}
                 </div>
