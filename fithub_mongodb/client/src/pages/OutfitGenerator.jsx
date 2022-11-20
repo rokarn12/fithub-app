@@ -5,6 +5,7 @@ import './css/home.css';
 import ItemCard from './../components/ItemCard.jsx';
 import { useNavigate } from 'react-router-dom';
 import {
+    TextField,
     Button
 } from '@mui/material';
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
@@ -163,12 +164,6 @@ const OutfitGenerator = () => {
         // disable the button
         toggleDisable(true);
         // change everything
-        // setTimeout(function(){
-        //     setStyle_item1(outfits[outfit_counter][0]);
-        //     setStyle_item2(outfits[outfit_counter][1]);
-        //     setStyle_item3(outfits[outfit_counter][2]);
-        //     setStyle_item4(outfits[outfit_counter][3]);
-        // },1000);
 
         const hats = await handleGetHats();
         const shirts = await handleGetShirts();
@@ -226,17 +221,27 @@ const OutfitGenerator = () => {
         (user ? ( // user is logged in, show their outfit generator
         <div className="container text-center">
             {/* <body onLoad="fillAllItemLists()"></body> */}
-            <div id='back2' className="container mt-5 mb-5 col-lg">
+            <div style={{marginTop:"30px"}}></div>
+            <div id='back2' className="container mt-15 mb-5 col-lg">
 
                 {/* buttons */}
                 <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} disabled={isDisabled} onClick={changeStyle}>
                     Generate New Outfit
                 </Button>
                 &ensp;
+                {/*User input field to set item name*/}
+                <TextField 
+                        size="big"
+                        variant="outlined"
+                        label="Outfit Name"
+                        value={outfitName}
+                        style={{marginTop:"20px"}}
+                        onChange={(e) => setOutfitName(e.target.value)}/>
                 <Button id="button" variant="contained" style={{backgroundColor: "rgba(0, 37, 87, 1)"}} disabled={isDisabled} onClick={buildOutfit}>
                     Save This Outfit
                 </Button>
                 <div id="line"></div>
+                
                 
                 {/* <div className={ani}>
                     <ItemCard inCloset = {false} article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}

@@ -17,17 +17,28 @@ const SavedOutfits = () => {
     const {user} = useContext(UserContext);
     const navigate = useNavigate();
 
+<<<<<<< HEAD
     const [allUserOutfits, setAllOutfits] = useState([]);
     var itemName = "defaultName";
 
     const handlegetItems = async (e) => {
         // e.preventDefault();
+=======
+    const [allItems, setAllItems] = useState([]);
+    const [allOutfits, setAllOutfits] = useState([]);
+    var itemName = "defaultName";
+
+    // get items from database and filter by user name
+    const handlegetItems = async (e) => {
+        //e.preventDefault();
+>>>>>>> refs/remotes/origin/mern-stack
         try {
             const res = await getItems({user});
             console.log("successfully got user items");
             if (res.error) toast.error(res.error);
             else {
                 // display success message
+<<<<<<< HEAD
                 // toast.success(res.message);
                 // redirect user back to add item page
                 // navigate('/ecloset', {replace: true});
@@ -44,11 +55,25 @@ const SavedOutfits = () => {
             // navigate('/userdashboard', {replace: true});
             toast.error(err);
             return -1;
+=======
+                toast.success(res.message);
+                // redirect user back to add item page
+                navigate('/savedoutfits', {replace: true});
+                // use set state to update variable
+                setAllItems(res.items);
+                console.log("all items: ", allItems);
+            }
+        } catch (err) {
+            console.log(err);
+            navigate('/userdashboard', {replace: true});
+            toast.error(err);
+>>>>>>> refs/remotes/origin/mern-stack
         }
     };
 
     const handleGetOutfits = async (e) => {
         // e.preventDefault();
+        await handlegetItems();
         try {
             console.log("1");
             console.log("current user:", user);
@@ -56,6 +81,7 @@ const SavedOutfits = () => {
             console.log("success");
             if (res.error) toast.error(res.error);
             else {
+<<<<<<< HEAD
                 // toast.success(res.message);
                 // setAllOutfits(res.items);
                 // console.log(allOutfits);
@@ -64,6 +90,11 @@ const SavedOutfits = () => {
                 // console.log("result 2: ", res2);
                 // res2.forEach(element => console.log(element._id));
                 return (res.items);
+=======
+                toast.success(res.message);
+                setAllOutfits(res.items);
+                console.log("all outfits: ", allOutfits);
+>>>>>>> refs/remotes/origin/mern-stack
             }
         } catch (err) {
             console.log(err);
@@ -140,6 +171,7 @@ const SavedOutfits = () => {
                 Refresh Outfits
             </Button>
             <div className="container">
+<<<<<<< HEAD
                 {allUserOutfits.map((outfit) => (
                     <div>
                     {outfit.map((item) => (
@@ -157,6 +189,11 @@ const SavedOutfits = () => {
                 <CompactItemCard article='Shoes' color ={"grey"} type='Casual' name = {itemName}/>
             </div>       */}
             {/* <div className="container">
+=======
+                {allOutfits.forEach(outfit => { })}
+            </div>      
+            <div className="container">
+>>>>>>> refs/remotes/origin/mern-stack
                 <h3>OutfitName2</h3>
                 <CompactItemCard article='Hat' color ={"white"} type='Casual' name = {itemName}/>
                 <CompactItemCard article='Shirt' color ={"grey"} type='Casual' name = {itemName}/>
@@ -164,7 +201,7 @@ const SavedOutfits = () => {
                 <CompactItemCard article='Shoes' color ={"SlateGrey"} type='Casual' name = {itemName}/>
             </div>  */}
         </div>
-        // add user dashboard functionality here
+
     ) : ( // user is not logged in, show this message
         <div className="container text-center">
             <div className="alert alert-danger p-5">
