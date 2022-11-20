@@ -125,7 +125,7 @@ const SavedOutfits = () => {
                 });
                 last = [currentHat, currentTop, currentBottom, currentShoes];
                 console.log(last);
-                outfits.push(last);
+                outfits.push([currentOutfit.outfitName, last]);
                 last = [];
             });
 
@@ -150,9 +150,10 @@ const SavedOutfits = () => {
             <div className="container">
                 {allUserOutfits.map((outfit) => (
                     <div>
-                    {outfit.map((item) => (
-                        <CompactItemCard article = {item["clothingType"]} color = {item["color"]} type = {item["attireType"]} name = {item["itemName"]}/>
-                    ))}
+                        <h3>{outfit[0]}</h3>
+                        {outfit[1].map((item) => (
+                            <CompactItemCard article = {item["clothingType"]} color = {item["color"]} type = {item["attireType"]} name = {item["itemName"]}/>
+                        ))}
                     </div>
                 ))}
 
