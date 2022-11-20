@@ -163,12 +163,6 @@ const OutfitGenerator = () => {
         // disable the button
         toggleDisable(true);
         // change everything
-        // setTimeout(function(){
-        //     setStyle_item1(outfits[outfit_counter][0]);
-        //     setStyle_item2(outfits[outfit_counter][1]);
-        //     setStyle_item3(outfits[outfit_counter][2]);
-        //     setStyle_item4(outfits[outfit_counter][3]);
-        // },1000);
 
         const hats = await handleGetHats();
         const shirts = await handleGetShirts();

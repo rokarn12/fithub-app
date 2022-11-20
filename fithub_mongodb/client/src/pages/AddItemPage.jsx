@@ -16,9 +16,9 @@ const AddItemPage = () => {
     const navigate = useNavigate();
 
     // form states
-    const [clothingType, setClothingType] = useState("T-Shirt");
-    const [color, setColor] = useState("black");
-    const [attireType, setAttireType] = useState("Formal");
+    const [clothingType, setClothingType] = useState("");
+    const [color, setColor] = useState("");
+    const [attireType, setAttireType] = useState("");
     const [itemName, setitemName] = useState("defaultName");
 
     //function to actually add the item to the backend database
@@ -51,20 +51,22 @@ const AddItemPage = () => {
                 <div id = 'ClothingType' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="clothing-type">Clothing Type:&ensp;</label>
                     <select name="clothing-type" id="clothing-types" value={clothingType} onChange={(e) => setClothingType(e.target.value)}>
-                    <option value="T-shirt">T-shirt</option>
+                    {/* <option value="T-shirt">T-shirt</option> */}
+                    <option value="">Select Clothing Type</option>
                     <option value="Shirt">Shirt</option>
                     <option value="Hat">Hat</option>
                     <option value="Shoes">Shoes</option>
                     <option value="Pants">Pants</option>
-                    <option value="Shorts">Shorts</option>
+                    {/* <option value="Shorts">Shorts</option>
                     <option value="Jacket">Jacket</option>
-                    <option value="Pullover">Pullover</option>
+                    <option value="Pullover">Pullover</option> */}
                     </select>
                 </div>
                 {/*dropdown menu to select color*/}
                 <div id='Color' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="color">Color:&ensp;</label>
                     <select name="color" id="colors" value={color} onChange={(e) => setColor(e.target.value)}>
+                    <option value="">Select Color</option>
                     <option value="blue">Blue</option>
                     <option value="black">Black</option>
                     <option value="pink">Pink</option>
@@ -81,6 +83,7 @@ const AddItemPage = () => {
                 <div id='AttireType' className="container" style={{padding: "10px", fontSize: "20px"}}>
                     <label for="attire-type">Attire Type:&ensp;</label>
                     <select name="attire-type" id="attire-types" value={attireType} onChange={(e) => setAttireType(e.target.value)}>
+                    <option value="">Select Attire Type</option>
                     <option value="formal">Formal</option>
                     <option value="business-casual">Business Casual</option>
                     <option value="casual">Casual</option>
@@ -96,7 +99,8 @@ const AddItemPage = () => {
                         value={itemName}
                         onChange={(e) => setitemName(e.target.value)}/>
             </div>
-            <Button id="button" variant="contained" style={{marginTop: "4rem", backgroundColor: "rgba(0, 110, 255, 1)"}} onClick={handleAddItem}>Add Item</Button>
+            <Button id="button" variant="contained" style={{marginTop: "4rem", backgroundColor: "rgba(0, 110, 255, 1)"}} 
+            disabled={!clothingType || !color || !attireType} onClick={handleAddItem}>Add Item</Button>
         </div>
     );
 };
