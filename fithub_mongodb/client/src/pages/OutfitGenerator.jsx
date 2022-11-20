@@ -177,6 +177,15 @@ const OutfitGenerator = () => {
             var randomPants = pants[Math.floor(Math.random()*pants.length)];
             var randomShoes = shoes[Math.floor(Math.random()*shoes.length)];
             setRandomOutfit([randomHat, randomShirt, randomPants, randomShoes]);
+
+            // setting outfit
+            setFitHat(randomHat._id);
+            setFitTop(randomShirt._id);
+            setFitBottom(randomPants._id);
+            setFitShoes(randomShoes._id);
+            console.log("shoes for fit", fitShoes);
+
+
             console.log("random outfit: ", randomOutfit);
         }, 1000);
         

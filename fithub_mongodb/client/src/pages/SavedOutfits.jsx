@@ -6,7 +6,6 @@ import './css/home.css';
 import ItemCard from '../components/ItemCard.jsx';
 import { getOutfits } from "../api/outfit";
 import { getItems } from "../api/closet";
-import { getItems } from "../api/closet";
 
 import CompactItemCard from '../components/CompactItemCard.jsx';
 
@@ -88,36 +87,44 @@ const SavedOutfits = () => {
             allOutfits.forEach( function (currentOutfit) {
                 // console.log("current element: ", element);
                 
-               
                 var last = [];
+                var currentHat, currentTop, currentBottom, currentShoes;
 
                 allItems.forEach( function (currentItem) {
                     
                     // var currentHat = {itemName: "", attireType: "", color: "", clothingType: ""};
-                    var currentHat, currentTop, currentBottom, currentShoes;
+                    console.log(currentItem);
 
                     // if (currentItem._id === currentOutfit) {}
-                    console.log(currentItem._id, currentOutfit.fitHat);
-                    switch (currentItem._id) {
-                        case currentOutfit.fitHat:
-                            currentHat = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
-                            console.log("found hat ***8");
-                            break;
-                        case currentOutfit.fitTop:
-                            currentTop = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
-                            break;
-                        case currentOutfit.fitBottom:
-                            currentBottom = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
-                            break;
-                        case currentOutfit.fitShoes:
-                            currentShoes = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
-                            break;
+                    // console.log(currentItem._id, currentOutfit.fitHat);
+                    // switch (currentItem._id) {
+                    //     case currentOutfit.fitHat:
+                    //         currentHat = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    //         console.log("found hat ***8");
+                    //     case currentOutfit.fitTop:
+                    //         currentTop = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    //     case currentOutfit.fitBottom:
+                    //         currentBottom = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    //     case currentOutfit.fitShoes:
+                    //         currentShoes = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    // }
+
+                    if (currentItem._id === currentOutfit.fitHat) {
+                        currentHat = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    } else if (currentItem._id === currentOutfit.fitTop) {
+                        currentTop = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    } else if (currentItem._id === currentOutfit.fitBottom) {
+                        currentBottom = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
+                    } else if (currentItem._id === currentOutfit.fitShoes) {
+                        currentShoes = {itemName: currentItem.itemName, attireType: currentItem.attireType, color: currentItem.color, clothingType: currentItem.clothingType};
                     }
 
-                    last = [currentHat, currentTop, currentBottom, currentShoes];
+                    
+                    
 
                 });
-
+                last = [currentHat, currentTop, currentBottom, currentShoes];
+                console.log(last);
                 outfits.push(last);
                 last = [];
             });
