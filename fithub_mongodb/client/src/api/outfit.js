@@ -19,12 +19,16 @@ export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom
 };
 
 // gets outfit created by user
-export const getOutfits = async ({ user } = {}) => {
+export const getOutfits = async (user) => {
     const username = { user };
     try { 
         const res = await fetch(`${process.env.REACT_APP_API_URL}/outfits`, { // API route
-            method: "GET", 
-            credentials: "include",
+            method: "POST", // retrieve entry from database
+            headers: {
+                Accept: 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
         });
         return res.json();
     } catch (err) { 
