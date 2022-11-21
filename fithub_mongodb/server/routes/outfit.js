@@ -9,7 +9,7 @@ const { outfitValidator } = require("../middlewares/outfit");
 
 // api routes
 router.post("/createoutfit", createOutfit, outfitValidator);
-router.get("/outfits", userOutfits);
+router.post("/outfits", userOutfits);
 
 
 module.exports = router;

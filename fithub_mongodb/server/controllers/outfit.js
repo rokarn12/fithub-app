@@ -16,7 +16,7 @@ exports.createOutfit = async (req, res) => {
 exports.userOutfits = async (req, res) => {
 
     const items = await outfitObject.find({ // find outfits associated with current username
-        user: "pj1" // find by user
+        user: req.body.user // find by user
     });
 
     console.log(items);
