@@ -105,6 +105,12 @@ body {
     margin: 10px;
     box-shadow: 5px 5px 10px black;
     border: 25px solid black;
+    -webkit-transition: all 0.5s ease;
+}
+
+#img_icon:hover {
+    width: 17vw;
+    /* -webkit-transition: all 0.5s ease; */
 }
 
 @keyframes item-move {
