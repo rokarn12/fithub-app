@@ -11,16 +11,13 @@ import {
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
 import { createOutfit } from '../api/outfit';
 import { options } from "../api/weather";
+//import clothingitem from '../../../server/models/clothingitem'; // this import is not supported because it is from server
 const axios = require("axios");
 
 
 const OutfitGenerator = () => {
     // state variables
     const {user} = useContext(UserContext);
-    // const [hats, setHats] = useState([]);
-    // const [shirts, setShirts] = useState([]);
-    // const [pants, setPants] = useState([]);
-    // const [shoes, setShoes] = useState([]);
     const [randomOutfit, setRandomOutfit] = useState([]);
 
     // current outfit with test values
@@ -147,19 +144,6 @@ const OutfitGenerator = () => {
         // fill all item lists
         console.log("calling fill list");
 
-        // var res = await fillAllItemLists();
-        // console.log("call status: ", res);
-
-        // setTimeout(function (){
-                
-        // }, 1000);
-
-        // print all items received from database
-        // console.log("Hats", hats);
-        // console.log("Shirts:", shirts);
-        // console.log("Pants:", pants);
-        // console.log("Shoes:", shoes);
-
         console.log("clicked button", outfit_counter); // current state of temp outfit generator
         // start animation state
         animate1("outfit2");
@@ -171,6 +155,11 @@ const OutfitGenerator = () => {
         const shirts = await handleGetShirts();
         const pants = await handleGetPants();
         const shoes = await handleGetShoes();
+
+        // attempted to add a temporary empty hat so that it is included in random outfit generator
+        // but it would need to import "ClothingItem" from the server side which is not supported
+        // var noHat = new clothingitem({ "user": user, "itemName": "No Hat", "clothingType": "Hat", "color": "white", "attireType": "Casual"})
+        // console.log("noHat: ", noHat);
 
         setTimeout(function() {
             var randomHat = hats[Math.floor(Math.random()*hats.length)];
@@ -228,6 +217,7 @@ const OutfitGenerator = () => {
         }
     }
 
+    // weather api code
     // axios.request(options).then(function (response) {
     //     console.log("current weather is:", response.data);
     // }).catch(function (error) {
@@ -259,17 +249,6 @@ const OutfitGenerator = () => {
                 </Button>
                 <div id="line"></div>
                 
-                
-                {/* <div className={ani}>
-                    <ItemCard inCloset = {false} article='Hat' color ={color1} type='Casual' img_src={require('./images/cap.png')}
-                            description="It's looking pretty sunny out today. We want to make sure you're looking stylish and protected!"/>
-                    <ItemCard inCloset = {false} article='Shirt' color ={color2} type='Casual' img_src={require('./images/tshirt.png')}
-                            description="We love this T-shirt, it has a light color to contrast your hat and shorts, what do you think?"/>
-                    <ItemCard inCloset = {false} article='Shorts' color ={color3} type='Casual' img_src={require('./images/shorts.png')}
-                            description="These shorts match your other clothing perfectly!"/>
-                    <ItemCard inCloset = {false} article='Shoes' color ={color4} type='Casual' img_src={require('./images/sneakers.png')}
-                            description="Your schedule seems busy today, these should support you throughout the whole day."/>
-                </div> */}
                 <div>
                     {randomOutfit.map((item) => (
                         <ItemCard inCloset = {true} article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
