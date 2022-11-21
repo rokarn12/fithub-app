@@ -251,7 +251,7 @@ const OutfitGenerator = () => {
                 
                 <div>
                     {randomOutfit.map((item) => (
-                        <ItemCard inCloset = {true} article = {item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
+                        <ItemCard inCloset = {true} article = {item.clothingType === "Hat" ? "Hat (Optional)" : item.clothingType} color = {item.color} type = {item.attireType} name = {item.itemName}/>
                     ))}
                 </div>
             </div>  

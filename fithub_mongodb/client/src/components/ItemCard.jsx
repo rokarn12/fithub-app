@@ -18,9 +18,20 @@ const ItemCard = (props) => {
     const navigate = useNavigate();
     var imgSrc = props.img_src;
 
+    var name = props.name
+    var article = props.article
+    var type = props.type
+    var color = props.color
+    var inCloset = props.inCloset
+
     // Determining the image for the article of clothing for the item card
     switch (props.article) {
         case "Hat":
+            imgSrc = require('../pages/images/cap.png');
+            // props.article = "Hat (Optional)";
+            // article = "Hat"
+            break;
+        case "Hat (Optional)":
             imgSrc = require('../pages/images/cap.png');
             break;
         case "Shirt":
@@ -40,11 +51,7 @@ const ItemCard = (props) => {
             break;
     }
 
-    var name = props.name
-    var article = props.article
-    var type = props.type
-    var color = props.color
-    var inCloset = props.inCloset
+   
 
     // handles item removal in e-closet if remove button is pressed
     const handleRemoveItem = async (e) => {
@@ -71,7 +78,7 @@ const ItemCard = (props) => {
         <div id='itemCard' className='media'>
             <img id='img_icon' src={imgSrc} className='mr-3' alt='img1' style={{borderColor: props.color}}></img>
             <div className='media-body text-left'>
-                <h4 className='mt-0 mb-1'>{props.article} | {props.name}</h4>
+                <h4 className='mt-0 mb-1'>{article} | {props.name}</h4>
                 <p classname='mt-0 mb-1'>Color: {props.color} <b>|</b> Type: {props.type}</p>
                 <p>&ensp;{props.description}</p>
             </div>
