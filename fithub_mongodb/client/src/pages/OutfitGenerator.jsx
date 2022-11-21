@@ -10,6 +10,8 @@ import {
 } from '@mui/material';
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
 import { createOutfit } from '../api/outfit';
+import { options } from "../api/weather";
+const axios = require("axios");
 
 
 const OutfitGenerator = () => {
@@ -225,6 +227,12 @@ const OutfitGenerator = () => {
             toast.error(err);
         }
     }
+
+    // axios.request(options).then(function (response) {
+    //     console.log("current weather is:", response.data);
+    // }).catch(function (error) {
+    //     console.error(error);
+    // });
 
     return (
         (user ? ( // user is logged in, show their outfit generator
