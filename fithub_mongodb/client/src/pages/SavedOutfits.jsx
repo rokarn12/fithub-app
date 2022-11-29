@@ -147,9 +147,9 @@ const SavedOutfits = () => {
             <Button id="button" variant="contained" onClick={showAllOutfits} size="large" style={{backgroundColor: "rgba(0, 110, 255, 1)"}} >
                 Refresh Outfits
             </Button>
-            <div className="container">
+            <div className="container" >
                 {allUserOutfits.map((outfit) => (
-                    <div>
+                    <div id="outfitHolder">
                         <h3>{outfit[0]}</h3>
                         {outfit[1].map((item) => (
                             <CompactItemCard article = {item["clothingType"]} color = {item["color"]} type = {item["attireType"]} name = {item["itemName"]}/>
