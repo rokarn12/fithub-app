@@ -7,10 +7,13 @@ const cors = require('cors');
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const expressValidator = require("express-validator");
+var connect = require("connect");
+const path = require("path");
 
 // app
 const app = express();
-
+//var app = connect().use(connect.static(__dirname + '/public'));
+const staticFileMiddleware = express.static(path.join(__dirname + '/dist'));
 
 // db
 mongoose.connect(process.env.MONGO_URI, {
@@ -21,12 +24,14 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 // middleware
+app.use(staticFileMiddleware);
 app.use(morgan("dev"));
 app.use(cors({ origin: true, credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressValidator());
+app.use(staticFileMiddleware);
 
 // routes
 const userRoutes = require("./routes/user");
@@ -38,6 +43,10 @@ app.use("/", outfitRoutes);
 
 // port
 const port = process.env.PORT || 8080;
+
+app.get('/', function (req, res) {
+    res.render('index')
+  })
 
 // listener
 const server = app.listen(port, () => 
