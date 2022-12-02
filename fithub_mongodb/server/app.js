@@ -7,7 +7,7 @@ const cors = require('cors');
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const expressValidator = require("express-validator");
-var connect = require("connect");
+//var connect = require("connect");
 const path = require("path");
 
 // app
