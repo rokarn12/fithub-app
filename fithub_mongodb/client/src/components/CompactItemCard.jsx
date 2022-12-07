@@ -1,9 +1,5 @@
 // import { Button } from "bootstrap";
-import React, { useState } from "react";
-
-import {
-    Button
-} from '@mui/material';
+import React from "react";
 
 const CompactItemCard = (props) => {
 
@@ -29,6 +25,8 @@ const CompactItemCard = (props) => {
         case "Shoes":
             imgSrc = require('../pages/images/sneakers.png');
             break;
+        default:
+            console.log(`error`);
     }
 
     return (

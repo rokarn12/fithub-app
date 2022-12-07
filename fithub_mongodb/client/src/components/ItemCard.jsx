@@ -1,5 +1,5 @@
 // import { Button } from "bootstrap";
-import React, {useContext, useState } from 'react';
+import React, {useContext} from 'react';
 import { toast } from 'react-toastify';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -49,6 +49,8 @@ const ItemCard = (props) => {
         case "Shoes":
             imgSrc = require('../pages/images/sneakers.png');
             break;
+        default:
+            console.log(`error`);
     }
 
    

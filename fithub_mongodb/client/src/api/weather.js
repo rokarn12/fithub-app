@@ -1,3 +1,4 @@
+/*
 const axios = require("axios");
 
 const options = {
@@ -9,3 +10,4 @@ const options = {
     'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
   }
 };
+*/

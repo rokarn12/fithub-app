@@ -3,16 +3,16 @@ import { UserContext } from '../UserContext';
 import { toast } from 'react-toastify';
 import './css/home.css';
 import ItemCard from './../components/ItemCard.jsx';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import {
     TextField,
     Button
 } from '@mui/material';
 import { getHats, getPants, getShirts, getShoes } from '../api/closet';
 import { createOutfit } from '../api/outfit';
-import { options } from "../api/weather";
+//import { options } from "../api/weather";
 //import clothingitem from '../../../server/models/clothingitem'; // this import is not supported because it is from server
-const axios = require("axios");
+//const axios = require("axios");
 
 
 const OutfitGenerator = () => {
@@ -101,22 +101,6 @@ const OutfitGenerator = () => {
         }
     };
 
-    // fill all lists
-    const fillAllItemLists = async() => {
-        try {
-            console.log("filling all item lists");
-            await handleGetHats();
-            // await handleGetHats();
-            await handleGetShirts();
-            await handleGetPants();
-            await handleGetShoes();
-            console.log("all item lists successfully filled");
-            return true;
-        } catch (err) {
-            toast.error(err);
-            return false;
-        }
-    }
 
     // used for temporary outfit generation
     const outfits = [
@@ -126,14 +110,6 @@ const OutfitGenerator = () => {
         ["Yellow", "Grey", "SlateGrey", "White"],
     ]
 
-
-    // pre-set outfit generation
-
-    // variables for colors
-    const [color1, setStyle_item1] = useState("Red");
-    const [color2, setStyle_item2] = useState("White");
-    const [color3, setStyle_item3] = useState("Brown");
-    const [color4, setStyle_item4] = useState("Grey");
 
     // variables for outfit switcher
     const [ani, animate1] = useState("outfit1");

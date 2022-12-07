@@ -61,7 +61,7 @@ export const getItems = async (user) => {
 
 // function to get the user's hats
 export const getHats = async (user) => {
-    const username = { user };
+    //const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/hats`, {
             method: "POST", // retrieve entry from database
@@ -79,7 +79,7 @@ export const getHats = async (user) => {
 
 // function to get the user's shirts
 export const getShirts = async (user) => {
-    const username = { user };
+    //const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shirts`, {
             method: "POST", // retrieve entry from database
@@ -97,7 +97,7 @@ export const getShirts = async (user) => {
 
 // function to get user's pants
 export const getPants = async (user) => {
-    const username = { user };
+    //const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/pants`, {
             method: "POST", // retrieve entry from database
@@ -115,7 +115,7 @@ export const getPants = async (user) => {
 
 // function to get user's shoes
 export const getShoes = async (user) => {
-    const username = { user };
+    //const username = { user };
     try {
         const res = await fetch(`${process.env.REACT_APP_API_URL}/shoes`, {
             method: "POST", // retrieve entry from database

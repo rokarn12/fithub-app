@@ -20,7 +20,7 @@ export const createOutfit = async ({ user, outfitName, fitHat, fitTop, fitBottom
 
 // gets outfit created by user
 export const getOutfits = async (user) => {
-    const username = { user };
+    //const username = { user };
     try { 
         const res = await fetch(`${process.env.REACT_APP_API_URL}/outfits`, { // API route
             method: "POST", // retrieve entry from database

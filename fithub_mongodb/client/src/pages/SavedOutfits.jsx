@@ -1,9 +1,9 @@
 import React, {useContext, useState } from 'react';
 import { UserContext } from '../UserContext';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import './css/home.css';
-import ItemCard from '../components/ItemCard.jsx';
+//import ItemCard from '../components/ItemCard.jsx';
 import { getOutfits } from "../api/outfit";
 import { getItems } from "../api/closet";
 
@@ -15,10 +15,10 @@ import {
 
 const SavedOutfits = () => { 
     const {user} = useContext(UserContext);
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const [allUserOutfits, setAllOutfits] = useState([]);
-    var itemName = "defaultName";
+    //var itemName = "defaultName";
 
     const handlegetItems = async (e) => {
         // e.preventDefault();

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, redirect } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { UserContext } from "./UserContext";
-
-import {toast, ToastContainer} from 'react-toastify';
+import {toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 // components
@@ -12,9 +10,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from "./pages/Signup";
 import UserDashboard from "./pages/UserDashboard";
-
 import AddItemPage from "./pages/AddItemPage";
-
 import OutfitGenerator from "./pages/OutfitGenerator";
 import ECloset from "./pages/ECloset";
 import SavedOutfits from "./pages/SavedOutfits";
