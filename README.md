@@ -8,7 +8,7 @@ How long does it take to figure out what to wear in the morning? How many pieces
 ### Step 1:
 Install Node using the link:
 https://nodejs.org/en/download/ 
-/nInstall Git using the link:
+Install Git using the link:
 https://git-scm.com/download/win
 Keep all installer settings default
 
