@@ -6,7 +6,7 @@ How long does it take to figure out what to wear in the morning? How many pieces
 ## How to Install and Run Fithub
 
 ### Step 1:
-Install Node using the link below:
+Install Node using the link:
 https://nodejs.org/en/download/ 
 
 ### Step 2: 
