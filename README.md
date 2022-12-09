@@ -26,15 +26,19 @@ Install server files using commands:
 ```
 cd /fithub_mongodb/server
 npm i express mongoose morgan cors dotenv nodemon cookie-parser crypto express-validator jsonwebtoken uuidv1
+```
+
+### Step 5: Install client files using commands:
+```
 cd ../client
 npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react react-dom react-router-dom react-scripts web-vitals react-toastify
 ```
 
-### Step 5:
+### Step 6:
 Start client side by typing:
 ```npm start```
 
-### Step 6:
+### Step 7:
 Open a second terminal and type:
 ```
 cd fithub-app/fithub_mongodb/server
