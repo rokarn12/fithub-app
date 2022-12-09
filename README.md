@@ -5,18 +5,46 @@ How long does it take to figure out what to wear in the morning? How many pieces
 
 ## How to Install and Run Fithub
 
-### Step 1: Install Node 
+### Step 1:
+Install Node using the link below:
 https://nodejs.org/en/download/ 
 
-### Step 2: Open Terminal
-
+### Step 2: 
+Open any terminal and type:
 ```
 git clone https://github.com/rokarn12/fithub-app.git
 ```
 
+### Step 3:
+Then type:
+```
+cd fithub-app
+```
+
+### Step 4:
+Install server files using commands:
+```
+cd /fithub_mongodb/server
+npm i express mongoose morgan cors dotenv nodemon cookie-parser crypto express-validator jsonwebtoken uuidv1
+cd ../client
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react react-dom react-router-dom react-scripts web-vitals react-toastify
+```
+
+### Step 5:
+Start client side by typing:
+```npm start```
+
+### Step 6:
+Open a second terminal and type:
+```
+cd fithub-app/fithub_mongodb/server
+npm start
+```
 
 
 
+
+### OLD README
 ## How to Start Development
 Run the following commands to install libraries if you only have basic npm libraries
 
