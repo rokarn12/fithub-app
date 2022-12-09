@@ -19,6 +19,7 @@ git clone https://github.com/rokarn12/fithub-app.git
 Then type:
 ```
 cd fithub-app
+git checkout mern-stack
 ```
 
 ### Step 4:
