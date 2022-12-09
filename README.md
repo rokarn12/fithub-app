@@ -5,10 +5,15 @@ How long does it take to figure out what to wear in the morning? How many pieces
 
 ## How to Install and Run Fithub
 
-# Step 1: Install Node 
+### Step 1: Install Node 
 https://nodejs.org/en/download/ 
 
-# Step 2: 
+### Step 2: Open Terminal
+
+```
+git clone 
+
+
 ## How to Start Development
 Run the following commands to install libraries if you only have basic npm libraries
 
