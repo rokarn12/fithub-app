@@ -11,7 +11,10 @@ https://nodejs.org/en/download/
 ### Step 2: Open Terminal
 
 ```
-git clone 
+git clone https://github.com/rokarn12/fithub-app.git
+```
+
+
 
 
 ## How to Start Development
