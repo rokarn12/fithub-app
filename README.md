@@ -10,7 +10,7 @@ Install Node using the link:
 https://nodejs.org/en/download/  
 
 Install Git using the link:
-https://git-scm.com/download/win
+https://git-scm.com/download/win  
 Keep all installer settings default
 
 ### Step 2: 
