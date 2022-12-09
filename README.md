@@ -24,7 +24,7 @@ cd fithub-app
 ### Step 4:
 Install server files using commands:
 ```
-cd /fithub_mongodb/server
+cd fithub_mongodb/server
 npm i express mongoose morgan cors dotenv nodemon cookie-parser crypto express-validator jsonwebtoken uuidv1
 ```
 
