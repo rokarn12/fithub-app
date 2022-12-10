@@ -49,7 +49,7 @@ cd fithub-app/fithub_mongodb/server
 npm start
 ```
 
-
+Please contact us at fithubappsdd@gmail.com for troubleshooting issues, and any comments or concerns.
 
 
 ### OLD README
